@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Invitados</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- owl css -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- awesome fontfamily -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript">
+    </script>
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
+    <style type="text/css">
+        input[type="text"], [type="date"], [type="time"] {
+            border: 1px solid;
+        }
+
+        body {
+            padding-top: calc(0.8rem + env(safe-area-inset-top));
+        }
+
+        .navbar {
+            margin-top: env(safe-area-inset-top);
+        }
+    </style>
+   
+</head>
+<!-- body -->
+
+<body class="main-layout blog_page" id="deviceready">
+    <!-- loader  -->
+    <div class="loader_bg">
+        <div class="loader"><img src="images/loading3.gif" alt="" /></div>
+    </div>
+
+    <div class="wrapper">
+        <!-- end loader -->
+        <div id="content">
+            <!-- header -->
+            <header>
+                <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+                    <a class="navbar-brand" href="#">
+                        <img src="img/logo.png" width="45" height="45" alt="">
+                        San Francisco
+                    </a>
+                    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="Inicio.html">Inicio</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="visitantes.html">Invitados</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="email.html">Comunicaciones</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="perfil.html">Perfil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" onclick="eliminar_session()">Salir</a>
+                            </li>
+                            <!--  <li class="nav-item">
+        <a class="nav-link disabled">D</a>
+    </li> -->
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            <br />
+            <br />
+            <br />
+            <!-- end header -->
+
+            <div class="col-sm-12 text-right mt-3">
+                <a href="nuevo_visitante.html" class="btn btn-dark">Realizar invitaci&oacute;n</a>
+            </div>
+            <br />
+            <!-- blog -->
+            <div class="blog" style="padding-top: 0px;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <!-- Añade 'text-center' aquí -->
+                            <h2 class="black"><strong>Historial de invitados</strong></h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Fecha</b>
+                            <div class="input-group mb-3">
+
+                                <input type="date" class="form-control form-control-sm" style="border: 1px solid;" id="txt_fecha" placeholder="Search">
+                                <div class="input-group-append">
+                                    <button class="btn btn-dark" onclick="lista_visitantes();" type="button">Buscar</button>
+                                    <!-- <button id="fetchDataButton">Obtener Datos</button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-hoven">
+                                <tbody id="tbl_lista">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row" id="msj">
+                    </div>
+                </div>
+            </div>
+            <!-- end blog -->
+            <!-- footer -->
+            <footer class="bg-light text-dark mt-5">
+                <div class="container text-center text-md-left py-3">
+                    <!-- Grid row -->
+                    <div class="row">
+                        <!-- Grid column -->
+                        <div class="col-md-12 mt-md-0 mt-3">
+                            <!-- Content -->
+                            <h6 class="text-uppercase font-weight-bold">Urb. Rancho San Francisco</h6>
+                            <p>© 2024 Derechos Reservados</p>
+                        </div>
+                        <!-- Grid column -->
+                    </div>
+                    <!-- Grid row -->
+                </div>
+                <!-- Footer Text -->
+            </footer>
+            <!-- end footer -->
+
+        </div>
+    </div>
+    <div class="overlay"></div>
+    <!-- Javascript files-->
+    <script src="cordova.js"></script>
+    <script src="js/jquery.min.js"></script>
+        <script src="js/init.js"></script>
+
+    <script src="js/session.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/custom.js"></script> 
+     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/hikphp.js"></script>  
+
+    <script>
+    $(document).ready(function() {
+        var fechaActual = new Date();
+        var options = { day: 'numeric' , month: 'numeric', year: 'numeric'};
+        var fechaFormateada = fechaActual.toLocaleDateString('es-ES', options);
+        var fecha = fechaFormateada.split('/');
+        console.log(fecha)
+        if(fecha[0]<10)
+        {
+            fecha[0] = '0'+fecha[0];
+        }
+        if(fecha[1]<10)
+        {
+            fecha[1] = '0'+fecha[1];
+        }
+        var new_fecha = fecha[2]+'-'+fecha[1] +'-'+fecha[0]
+        console.log(new_fecha)
+        
+        $("#txt_fecha").val(new_fecha);
+        lista_visitantes();
+    });
+
+    function perfil_visitas(id)
+    {
+        location.href='perfil_visita.html?id='+id
+    }
+</script>
+   <script type="text/javascript">
+        $(document).ready(function() {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#dismiss, .overlay').on('click', function() {
+                $('#sidebar').removeClass('active');
+                $('.overlay').removeClass('active');
+            });
+
+            $('#sidebarCollapse').on('click', function() {
+                $('#sidebar').addClass('active');
+                $('.overlay').addClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
