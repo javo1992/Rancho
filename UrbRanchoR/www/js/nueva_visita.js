@@ -123,6 +123,7 @@ function addVisita()
 		'tipoVisita':$('#ddl_tipo_visita').val(),
 		'desde':$('#txt_desde').val(),
 		'hasta':$('#txt_hasta').val(),
+        'proposito':$('#ddl_proposito').val(),
 	}
 
     $('#pnl_load').css('display','initial');

@@ -180,10 +180,10 @@
                                         <b>Email<span style="color:red">*</span></b>
                                         <input class="form-control" placeholder="Email" type="text" name="txt_email" id="txt_email" readonly>
                                     </div>
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="display:none;">
                                         <b>Telefono<span style="color:red">*</span></b>
                                         <div class="input-group mb-3">
-                                            <input class="form-control" placeholder="Telefono" type="number" name="txt_telefono" id="txt_telefono" style="border: 1px solid;">   
+                                            <input class="form-control" placeholder="Telefono" type="number" name="txt_telefono" id="txt_telefono" style="border: 1px solid;" value="022897949">   
                                            <button type="button" class="btn btn-dark btn-flat btn-sm" onclick="mostrarContactos()" id="btnContactos" style="width: 15%;"><i class="fa fa-search pt-0" aria-hidden="true"></i></button>
                                         </div>
                                        
@@ -195,13 +195,18 @@
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                         <b>Tipo de visita<span style="color:red">*</span></b>
                                         <div class="form-group">
-                                            <select style="border-radius: inherit;padding: 15px 20px;font-family: poppins; width:100%" id="ddl_tipo_visita">
-                                                <option value="">Tipo Visita</option>
-                                                <!-- <option value="0">Business / Negocios</option> -->
-                                                <!-- <option value="1">Training / Entrenamiento</option> -->
-                                                <option value="2">Visit / Visita</option>
-                                                <!-- <option value="3">Meeting / Reunion</option> -->
+                                            <select style="border-radius: inherit;padding: 15px 20px;font-family: poppins; width:100%" id="ddl_tipo_visita" disabled>
                                                 <option value="4">Others / Otros</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <b>Proposito<span style="color:red">*</span></b>
+                                        <div class="form-group">
+                                            <select style="border-radius: inherit;padding: 15px 20px;font-family: poppins; width:100%" id="ddl_proposito">
+                                                <option value="Visita">Visita</option>
+                                                <option value="Mantenimiento">Mantenimiento</option>
+                                                <option value="Taxi">Taxi</option>
                                             </select>
                                         </div>
                                     </div>
@@ -241,7 +246,7 @@
                             <!-- Grid column -->
                             <div class="col-md-12 mt-md-0 mt-3">
                                 <!-- Content -->
-                                <h6 class="text-uppercase font-weight-bold">Rancho San Francisco</h6>
+                                <h6 class="text-uppercase font-weight-bold">Urb. Rancho San Francisco</h6>
                                 <p>© 2024 Derechos Reservados</p>
                             </div>
                             <!-- Grid column -->

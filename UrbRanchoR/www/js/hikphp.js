@@ -15,7 +15,7 @@ function lista_visitantes()
         	tr = '';
         	if(response.length==0){tr+=`<tr"><td colspan='2'>Sin visitas este dia</td></tr>`;}
         	response.forEach(function(item,i){
-        		tr+=`<tr onclick="perfil_visitas(`+item.Id+`)">
+        		tr+=`<tr ">
     				<td style="width:30%">`
     				if(item.Foto!='' && item.Foto!=null){
                         // console.log(item.Foto)
@@ -23,8 +23,9 @@ function lista_visitantes()
     				}else{
     					tr+=`<img src="images/user.png">`;
     				}
+                    tr+=`<button type="button" class="btn btn-default btn-sm" style="align-items: center;display: inline-flex;" onclick="show_ticket(`+item.Id+`)"><i style="padding-right:6px;font-size: 33px;" class="fa fa-qrcode"></i>  compartir</button>`;
     				tr+=`</td>
-    				<td>
+    				<td onclick="perfil_visitas(`+item.Id+`)">
     					<strong class="black">Nombre:</strong><br> <strong class="black"> `+item.NombreVisitante+`</strong>
     					<br>
     					<strong class="black">Fecha:</strong><br>  <strong class="black">`+item.FechaIni+` - `+item.FechaFin+` </strong>

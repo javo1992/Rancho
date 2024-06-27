@@ -361,6 +361,7 @@ class ConnectHikcentral
 		        "visitStartTime"=> $parametros['fecha'].'T'.$parametros['desde'].':00-05:00',
 		        "visitEndTime"=>$parametros['fecha'].'T'.$parametros['hasta'].':00-05:00',
 		        "visitPurposeType"=> intval($parametros['tipoVisita']),
+		        "visitPurpose"=> $parametros['proposito'],
 		        "visitorInfoList"=> array(
 		            	array(
 		                "VisitorInfo"=> array(
