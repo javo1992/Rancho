@@ -7,7 +7,7 @@ function validar_session()
     var password =  localStorage.getItem('Password');
 	if(usuario!=null && password!=null && id!=null)
 	{
-		location.href="inicio.html";
+		location.href= "fingerSession.html"; //"inicio.html";
 	}else
 	{
 		localStorage.removeItem('Usuario');
