@@ -27,7 +27,7 @@ function Init()
         dataType: 'json',
 	    contentType: 'application/json',	   
 	    success : function(response) {
-	    	$("#txt_id").val(response.Registro);
+	    	// $("#txt_id").val(response.Registro);
 	    	$('#txt_ip_hik').val(response.hikvision)
 			$('#txt_user_hik').val(response.hik_usu)
 			$('#txt_key_hik').val(response.hik_key)

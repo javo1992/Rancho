@@ -89,6 +89,9 @@
                    <input type="password" id="txt_pass" name="txt_pass" class="form-control" style="border: 1px solid #000000;">       
                    <button type="button" class="btn btn-dark btn-flat btn-sm" onclick="mostrar_clave()" style="width: 15%;"><i class="fa fa-eye" aria-hidden="true"></i></button>
                 </div>
+                <div class="input-group mb-3">
+                   <label><input type="checkbox" id="rbl_recordarme" name="rbl_recordarme" checked style="border: 1px solid #000000;"> Recordar mis datos</label>
+                </div>
             </div>
             <div class="row mt-3">
                 <div class="col text-center" style="padding:0px">
@@ -107,9 +110,29 @@
         <script src="js/login.js"></script>   
 
          <script type="text/javascript">
-           $(document).ready(function() {                
-             //Init();
+           $(document).ready(function() {      
+
+             crecordar_usuario();              
            })
+
+
+           function crecordar_usuario()
+           {
+                try
+                {
+                    $('#txt_usuario').val(localStorage.getItem('log_usu'));
+                    $('#txt_correo').val(localStorage.getItem('log_correo'));
+                    $('#txt_id').val(localStorage.getItem('log_id'));    
+                    // validarUsuario();      
+             //Init();
+
+                }catch(e)
+                {
+                    console.log(e)
+
+                }
+
+           }
 
            function limpiar()
            {

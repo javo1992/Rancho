@@ -12,6 +12,7 @@ document.addEventListener('deviceready', function() {
 
     function isAvailableError(error) {
         console.error("Biometrics not available: " + error);
+        location.href= "login.html";
     }
 
     function authSuccess(result) {
@@ -22,6 +23,7 @@ document.addEventListener('deviceready', function() {
 
     function authError(error) {
         console.error("Authentication failed: " + error);
+        location.href= "login.html";
         // Aquí puedes manejar el error de autenticación, como mostrar un mensaje al usuario
     }
 }, false);

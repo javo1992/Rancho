@@ -7,6 +7,20 @@ function iniciar_session()
 	var cor =$('#txt_correo').val();
 	var pas = $('#txt_pass').val();
 	var id = $('#txt_id').val();
+	var idP = $('#txt_id').val();
+
+	if($('#rbl_recordarme').prop('checked'))
+	{
+		localStorage.setItem('log_usu', usu);
+		localStorage.setItem('log_correo', cor);
+		localStorage.setItem('log_id', idP);
+	}else
+	{
+		localStorage.removeItem('log_usu');
+		localStorage.removeItem('log_correo');
+		localStorage.removeItem('log_id');
+	}
+
 	if(id=='')
 	{
 		alert('Usuario no validado o inexistente');
