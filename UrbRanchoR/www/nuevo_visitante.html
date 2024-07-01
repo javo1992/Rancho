@@ -154,17 +154,17 @@
                                     </div> -->
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                         <b>Fecha visita<span style="color:red">*</span></b>
-                                        <input type="date" name="txt_fecha" id="txt_fecha" class="form-control">
+                                        <input type="date" name="txt_fecha" id="txt_fecha" style="width: 100%;padding: 15px 20px;">
                                     </div>
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <b>Desde<span style="color:red">*</span></b>
-                                                <input type="time" name="txt_desde" id="txt_desde" class="form-control form-control-sm">
+                                                <input type="time" name="txt_desde" id="txt_desde" style="width: 100%;padding: 15px 20px;">
                                             </div>
                                             <div class="col-md-6">
                                                 <b>Hasta<span style="color:red">*</span></b>
-                                                <input type="time" name="txt_hasta" id="txt_hasta" class="form-control form-control-sm">
+                                                <input type="time" name="txt_hasta" id="txt_hasta" style="width: 100%;padding: 15px 20px;">
                                             </div>
                                         </div>
                                     </div>
@@ -312,8 +312,15 @@
 
                 $("#txt_fecha").val(new_fecha);
 
+                minutos = fechaActual.getMinutes();
+                minutos = minutos.toString();
 
-                var timeString = fechaActual.getHours() + ':' + fechaActual.getMinutes();
+                if(minutos.length==1)
+                {
+                    minutos = '0'+minutos
+                }
+
+                var timeString = fechaActual.getHours() + ':' + minutos;
                 console.log(timeString);
                 $('#txt_desde').val(timeString);
                 $('#txt_hasta').val(timeString);
