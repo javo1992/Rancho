@@ -22,6 +22,7 @@
     "cordova-plugin-file-transfer": "^2.0.0",
     "cordova-plugin-filechooser": "^1.2.0",
     "cordova-plugin-fingerprint-aio": "^6.0.0",
+    "cordova-plugin-statusbar": "^4.0.0",
     "cordova-plugin-x-socialsharing": "^6.0.4",
     "es6-promise-plugin": "^4.2.2"
   },
@@ -41,7 +42,8 @@
       "cordova-plugin-fingerprint-aio": {
         "FACEID_USAGE_DESCRIPTION": " "
       },
-      "cordova-plugin-android-permissions": {}
+      "cordova-plugin-android-permissions": {},
+      "cordova-plugin-statusbar": {}
     }
   },
   "dependencies": {

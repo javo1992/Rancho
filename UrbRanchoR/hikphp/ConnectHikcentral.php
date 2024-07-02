@@ -476,7 +476,7 @@ class ConnectHikcentral
         	$acc = $this->addAccess($credenciales['IAG'],$data1['data']['visitorId']);
 
         	// print_r($acc);die();
-        	return array('resp'=>1,'msj'=>'visita generada correctamente');
+        	return array('resp'=>1,'msj'=>'Visita generada correctamente');
         }else
         {
         	// print_r($data);

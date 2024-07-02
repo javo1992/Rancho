@@ -21,6 +21,12 @@
         <icon src="res/icon/ios/logo5.png" width="180" height="180" />
         <allow-navigation href="about:blank" />
 
+        <preference name="DisallowOverscroll" value="true" />
+        <preference name="StatusBarOverlaysWebView" value="false" />
+        <preference name="StatusBarBackgroundColor" value="#000000" /> <!-- Puedes cambiar el color según tu diseño -->
+
+
+
         <config-file platform="ios" target="*-Info.plist" parent="NSFaceIDUsageDescription">
             <string>Reason for using Face ID</string>
         </config-file>
