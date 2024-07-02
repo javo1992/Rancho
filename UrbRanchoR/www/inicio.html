@@ -230,8 +230,11 @@
                 $('#myModal_terminos').modal('show');
             }else
             {
-                $('#myModal_terminos').modal('hide');
-
+                if(terminos!=1)
+                {
+                    eliminar_session();
+                    location.href = 'login.html';
+                }
             }
             validar_session2()
         })
