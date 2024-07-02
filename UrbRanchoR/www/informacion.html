@@ -24,17 +24,27 @@
     <link rel="stylesheet" href="css/responsive.css">
     <!-- awesome fontfamily -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style type="text/css">
+            body {
+                padding-top: env(safe-area-inset-top);
+                padding-left: env(safe-area-inset-left);
+                padding-right: env(safe-area-inset-right);
+                padding-bottom: env(safe-area-inset-bottom);
+                margin: 0;
+            }
+        </style>
+
    
 </head>
 <!-- body -->
 
 <body class="main-layout Contact_page" id="deviceready">
-    <!-- loader  -->
-    <!--<div class="loader_bg" id="pnl_load">
-        <div class="loader"><img src="images/loading3.gif" alt="" /></div>
-        <h1 id="lbl_titulo"></h1>
-    </div>-->
-
+   <script type="text/javascript">
+        document.addEventListener('deviceready', function() {
+            StatusBar.overlaysWebView(false);
+            StatusBar.backgroundColorByHexString('#000000'); // Ajusta el color según tu diseño
+        }, false);
+    </script>
     <div class="wrapper">
         <!-- end loader -->
 
