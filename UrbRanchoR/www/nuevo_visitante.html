@@ -37,14 +37,10 @@
 
         input[type="date"] {
                 border: 1px solid ;
-                padding: 15px 20px;
-                width: 100%;
             }
 
         input[type="time"] {
                 border: 1px solid ;
-                padding: 15px 20px;
-                width: 100%;
             }
         .navbar-brand {
             display: flex;
@@ -171,13 +167,35 @@
                                     <div class="col-md-12">                                        
                                         <b>Fecha visita<span style="color:red">*</span></b>
                                         <div class="input-group mb-3">
-                                            <input type="date" class="form-control form-control-sm" style="border: 1px solid;" name="txt_fecha" id="txt_fecha" style="width: 100%;padding: 15px 20px;">
+                                            <input type="date" class="form-control form-control-sm" name="txt_fecha" id="txt_fecha" style="width: 100%;padding: 15px 20px;">
                                             <div class="input-group-append">
                                                 <button class="btn btn-dark" type="button"><i class="fa fa-calendar"></i></button>
                                                 <!-- <button id="fetchDataButton">Obtener Datos</button> -->
                                             </div>
                                         </div>
                                     </div>                                    
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <b>Desde<span style="color:red">*</span></b>
+                                        <div class="input-group mb-3">
+                                            <input type="time" class="form-control form-control-sm" name="txt_desde" id="txt_desde" style="width: 100%;padding: 15px 20px;" >
+                                             <div class="input-group-append">
+                                                <button class="btn btn-dark" type="button"><i class="fa fa-clock-o"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                                 <div class="row">                                    
+                                    <div class="col-md-12">             
+                                        <b>Hasta<span style="color:red">*</span></b>                           
+                                        <div class="input-group mb-3">
+                                            <input type="time" name="txt_hasta" id="txt_hasta" style="width: 100%;padding: 15px 20px;" class="form-control form-control-sm">
+                                             <div class="input-group-append">
+                                                <button class="btn btn-dark" type="button"><i class="fa fa-clock-o"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="row">
@@ -194,18 +212,6 @@
                                         </div>
                                     </div> -->
                                    
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <b>Desde<span style="color:red">*</span></b>
-                                                <input type="time" name="txt_desde" id="txt_desde" style="width: 300px;padding: 15px 20px;" class="form-control">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <b>Hasta<span style="color:red">*</span></b>
-                                                <input type="time" name="txt_hasta" id="txt_hasta" style="width: 100%;padding: 15px 20px;" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                         <b>Nombre<span style="color:red">*</span></b>
                                         <input class="form-control" placeholder="Nombre" type="text" name="txt_nombre" id="txt_nombre">
