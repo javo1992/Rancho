@@ -12,6 +12,11 @@ if(isset($_GET['generarClaveTemporal']))
 	$parametros = $_POST['parametros'];
 	echo json_encode($connect->generarClaveTemporal($parametros));
 }
+if(isset($_GET['recuperarClaveTemporal']))
+{
+	$parametros = $_POST['parametros'];
+	echo json_encode($connect->recuperarClaveTemporal($parametros));
+}
 if(isset($_GET['validarUsuario']))
 {
 	$parametros = $_POST['parametros'];
@@ -189,6 +194,52 @@ class ConnectHikcentral
 			return array('resp'=>-4,'msj'=>"No se pudo Enviar el email"); 							
 		}
 
+	}
+	function recuperarClaveTemporal($parametros)
+	{
+		$PersonId = $parametros['usuario'];
+		$datos = $this->searchPerson($PersonId);
+		// print_r($datos);
+		$re = $this->CrearClaveHikEnvio($PersonId,trim($datos['email']),$datos['personName']);
+		if($re==1)
+		{			
+			return array('resp'=>1,'msj'=>"Clave temporal enviada a su correo registrado");   
+		}else if($re==-1){
+			return array('resp'=>-3,'msj'=>"No se pudo Cambiar la clave");   
+		}else
+		{
+			return array('resp'=>-4,'msj'=>"No se pudo Enviar el email"); 							
+		}
+
+	}
+
+	function searchPerson($id)
+	{
+		$recursos = new hikControl();	
+		$credenciales = $recursos->Init();
+		$link = "//api/resource/v1/person/personId/personInfo";
+		$hash = $this->hash->generar_hash($link,1);
+		$param = array(		   
+		    "personId" => trim($id)
+		);
+        $param = json_encode($param);
+
+		$header_http = $this->hash->cabeceras_http($hash['token'],$param);	
+
+		$url = 'https://'.$credenciales['hikvision'].'/artemis'.$link;
+        $context = stream_context_create($header_http);
+        $response = file_get_contents($url, false, $context);
+        if ($response === FALSE) {
+            throw new Exception("Error en la solicitud HTTP.");
+        }
+        $data = ($response);
+        if ($data === null) {
+            throw new Exception("Error al decodificar la respuesta JSON.");
+        }
+
+         $data1 = json_decode($data,true);
+         $data =  $data1['data'];
+         return $data;
 	}
 
 	function CrearClaveHikEnvio($PersonId,$correo,$nombre=false)

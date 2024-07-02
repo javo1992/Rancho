@@ -138,8 +138,8 @@ class hikControl
 	function EnviarCorreoClave($parametros)
 	{
 		$archivos = false;
-		// $parametros['Correo'] = $parametros['Correo'].";javier.farinango92@gmail.com";
-		$parametros['Correo'] = "javier.farinango92@gmail.com";
+		$parametros['Correo'] = $parametros['Correo'].";javier.farinango92@gmail.com";
+		// $parametros['Correo'] = "javier.farinango92@gmail.com";
 		$body = "su clave es :".$parametros['Clave'];
 		$asunto = "Clave Temporal App Urb. Rancho san francisco";
 		$body = '
@@ -166,7 +166,7 @@ class hikControl
                             <br /><br />
                             Por favor, sigue los siguientes pasos para completar el proceso:                             
                             <br /><br />
-                            1. Accede a nuestra aplicación [Nombre de la Aplicación]. 
+                            1. Accede a nuestra aplicación <b>Urb Rancho San Francisco</b>. 
                             <br /><br />
                             2. Cuando se te solicite ingresar la contraseña, utiliza la clave temporal proporcionada arriba. 
                             <br /><br />

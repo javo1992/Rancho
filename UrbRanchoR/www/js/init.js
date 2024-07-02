@@ -1,5 +1,5 @@
 var ip_server_php = 'https://corsinf.com:447/pruebas/appPrueba/hikphp/';
-// var ip_server_php = '../../UrbRancho/hikphp/';
+// var ip_server_php = '../../UrbRanchoR/hikphp/';
 
 var server;
 var ip_server;

@@ -148,3 +148,41 @@ function generarClaveTemporal(usuario,correo,nombre)
 
 
 }
+
+function recuperar_pass()
+{
+	link = 'ConnectHikcentral.php?recuperarClaveTemporal=true';
+	if($('#txt_id').val()=='')
+	{
+		return false;
+	}
+	
+	$('#myModal_espera').modal('show');
+	parametros = 
+	{
+		'usuario':$('#txt_id').val(),
+	}
+	$.ajax({
+	    url :ip_server_php+link,
+	    data:{parametros,parametros},
+	    type : 'POST',
+        dataType: 'json',
+	    // contentType: 'application/json',	   
+	    success : function(response) {
+
+           $('#myModal_espera').modal('hide');
+	    	alert(response.msj);
+	    	if(response.resp==1)
+	    	{
+	    		location.href = "login.html";
+	    	}
+	    },
+	    error : function(xhr, status) {
+
+           $('#myModal_espera').modal('hide');
+	        alert('Disculpe, existió un problema');
+	      //  console.log(xhr);
+	    },
+	});
+
+}

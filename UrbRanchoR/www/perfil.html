@@ -99,9 +99,16 @@
                                         <p>Correo:</p>
                                         <p id="lbl_correo"></p>
                                         <p>Clave:</p>
+                                            <p id="txt_clave_actual"></p>
+                                         <p>Cambiar clave:</p>
                                         <div class="input-group mb-3">
-                                            <input type="password" name="txt_clave" id="txt_clave" class="form-control" placeholder="clave">    
+                                            <input type="password" name="txt_clave" id="txt_clave" class="form-control" placeholder="clave" onkeyup="validarContrasena(this.value)">    
                                            <button type="button" class="btn btn-default btn-flat btn-sm" onclick="mostrar_clave()" style="width: 15%;"><i class="fa fa-eye pt-0" aria-hidden="true"></i></button>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12" id="lbl_respuesta">
+                                                
+                                            </div>
                                         </div>
 
                                        
