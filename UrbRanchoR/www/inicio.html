@@ -3,21 +3,17 @@
 <html lang="en">
 
 <head>
-    <!-- basic -->
+   <!-- basic -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <!-- mobile metas --><!-- 
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://186.4.199.206:7443 data: gap: https://ssl.gstatic.com 'unsafe-eval' https://186.4.199.206:7443; script-src 'self' 'unsafe-inline';  style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; media-src *; img-src 'self' data: content:; connect-src https://186.4.199.206:7443 https://localhost https://localhost:4433 https://corsinf.com:447"> -->
-
-
-
-
-    <meta name="format-detection" content="telephone=no">
-    <meta name="msapplication-tap-highlight" content="no">
-    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-
-
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Invitados</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <!-- bootstrap css -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- owl css -->
@@ -34,12 +30,28 @@
         let link;
     </script>
     <style type="text/css">
-        body {
+      /*  body {
             padding-top: env(safe-area-inset-top);
             padding-left: env(safe-area-inset-left);
             padding-right: env(safe-area-inset-right);
             padding-bottom: env(safe-area-inset-bottom);
             margin: 0;
+        }*/
+         .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-text {
+            margin-left: 10px; /* Ajusta el margen según sea necesario */
+            font-size: 16px; /* Ajusta el tamaño del texto según sea necesario */
+            line-height: 1.2; /* Ajusta el espaciado entre las líneas del texto */
+            text-align: left; /* Asegura que el texto esté alineado a la izquierda */
         }
     </style>
 </head>
@@ -66,9 +78,13 @@
             <!-- header -->
             <header>
                 <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
-                    <a class="navbar-brand" href="#">
-                        <img src="img/logo.png" width="45" height="45" alt="">
-                        San Francisco
+                   <a class="navbar-brand" href="inicio.html">
+                        <div class="brand-container">
+                            <img src="img/logo.png" width="45" height="45" alt="">
+                            <div class="brand-text">
+                                Rancho<br>San Francisco
+                            </div>
+                        </div>
                     </a>
                     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -182,7 +198,7 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/encoding.js"></script>
+    <!-- <script src="js/encoding.js"></script> -->
 
     <!-- <script src="js/jquery-3.0.0.min.js"></script> -->
     <script type="text/javascript">
