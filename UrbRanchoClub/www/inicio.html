@@ -1,0 +1,653 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Invitados</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- owl css -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- awesome fontfamily -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <script type="text/javascript">
+        let link;
+    </script>
+     <link rel="stylesheet" href="css/notch.css">
+   
+    <style type="text/css">
+       
+         .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-text {
+            margin-left: 10px; /* Ajusta el margen según sea necesario */
+            font-size: 16px; /* Ajusta el tamaño del texto según sea necesario */
+            line-height: 1.2; /* Ajusta el espaciado entre las líneas del texto */
+            text-align: left; /* Asegura que el texto esté alineado a la izquierda */
+        }
+        .lista_style ul, 
+        .lista_style li, 
+        .lista_style ol {
+                margin: 2px;
+                padding: 7px;
+                list-style: disc;
+            }       
+    </style>
+</head>
+<!-- body -->
+
+<body class="main-layout Contact_page">
+    <!-- loader  -->
+    <div class="loader_bg" id="pnl_load">
+        <div class="loader"><img src="images/loading3.gif" alt="" /></div>
+        <h1 id="lbl_titulo"></h1>
+    </div>
+
+    <div class="wrapper">
+        <!-- end loader -->
+
+
+        <div id="content">
+            <!-- header -->
+            <header>
+                <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+                   <a class="navbar-brand" href="inicio.html">
+                        <div class="brand-container">
+                            <img src="img/logo.png" width="45" height="45" alt="">
+                            <div class="brand-text">
+                                Rancho<br>San Francisco
+                            </div>
+                        </div>
+                    </a>
+                    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="inicio.html">Inicio</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="visitantes.html">Invitados</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="email.html">Comunicaciones</a>
+                            </li>                            
+                             <li class="nav-item ">
+                                <a class="nav-link" href="informacion.html">Información</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="perfil.html">Perfil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" onclick="eliminar_session()">Salir</a>
+                            </li>
+                            <!--  <li class="nav-item">
+        <a class="nav-link disabled">D</a>
+    </li> -->
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            <br />
+            <br />
+            <br />
+            <!-- end header -->
+            <div class="blog" style="padding-top: 0px;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form class="main_form">
+                                 <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Realizar invitaci&oacute;n</h5>
+                                                <p class="card-text">Cree y comparta acceso de forma r&aacute;pida con sus invitados.</p>
+                                                <br />
+                                                <a href="nuevo_visitante.html" class="btn btn-dark">Invitar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Historial de invitados</h5>
+                                                <p class="card-text">Revise las invitaciones generadas en el sistema por fecha.</p>
+                                                <br />
+                                                <a href="visitantes.html" class="btn btn-dark">Historial</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Comunicaciones</h5>
+                                                <p class="card-text">Comunique o comparta información desde el aplicativo.</p>
+                                                <br />
+                                                <a href="email.html" class="btn btn-dark">Comunicaciones</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                               
+
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- end header -->
+                <!-- footer -->
+                <footer class="bg-light text-dark mt-5">
+                    <div class="container text-center text-md-left py-3">
+                        <!-- Grid row -->
+                        <div class="row">
+                            <!-- Grid column -->
+                            <div class="col-md-12 mt-md-0 mt-3">
+                                <!-- Content -->
+                                <h6 class="text-uppercase font-weight-bold">Rancho San Francisco</h6>
+                                <p>© 2024 Derechos Reservados</p>
+                            </div>
+                            <!-- Grid column -->
+                        </div>
+                        <!-- Grid row -->
+                    </div>
+                    <!-- Footer Text -->
+                </footer>
+                <!-- end footer -->
+
+            </div>
+        </div>
+        <div class="overlay"></div>
+        <!-- Javascript files-->
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/init.js"></script>      
+    <script src="js/session.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- <script src="js/encoding.js"></script> -->
+
+    <!-- <script src="js/jquery-3.0.0.min.js"></script> -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            setTimeout(function () {
+                $('.loader_bg').fadeToggle();
+            }, 1500);
+
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#dismiss, .overlay').on('click', function () {
+                $('#sidebar').removeClass('active');
+                $('.overlay').removeClass('active');
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').addClass('active');
+                $('.overlay').addClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+
+    <style>
+        #owl-demo .item {
+            margin: 3px;
+        }
+
+            #owl-demo .item img {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+    </style>
+
+
+    <script>
+        $(document).ready(function () {
+            terminos = localStorage.getItem('terminos');
+            console.log(terminos);
+            if(terminos==null)
+            {
+                $('#myModal_terminos').modal('show');
+            }else
+            {
+                if(terminos!=1)
+                {
+                    eliminar_session();
+                    location.href = 'login.html';
+                }
+            }
+            validar_session2()
+        })
+
+        function aceptar_terminos()
+        {
+            if($('#rbl_terminos').prop('checked'))
+            {
+
+                localStorage.setItem('terminos',1);
+                $('#myModal_terminos').modal('hide');
+            }
+
+        }
+    </script>
+      
+    
+        
+</body>
+
+</html>
+
+ <div class="modal" id="myModal_terminos" data-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+           
+            <div class="modal-body text-center">
+                 <div class="row" style="height: 350px; overflow-y: scroll;">
+                    <div class="col-sm-12" style="text-align: justify;">
+                        <h3>POLÍTICA GENERAL DE PROTECCIÓN DE DATOS PERSONALES</h3>
+                        
+                            La Urbanización Rancho San Francisco, en adelante<b>(“Rancho San Francisco”)</b>,de acuerdo con los procesos que maneja en relación con residentes, visitantes, trabajadores , proveedores y socios del Club Rancho San Francisco que son parte del lote 1 que conforma la urbanización, podrá ostentar la calidad de Responsable del tratamiento de los datos personales.
+                            En tal virtud pone a disposición su Política de Protección de Datos Personales (la “Política”), la cual será de obligatorio cumplimiento para los sujetos antes mencionados.
+                            Esta Política establece los lineamientos y principios bajo los cuales el Rancho San Francisco regirá sus relaciones y procesos en los cuales se realice un tratamiento de datos personales
+
+                
+                    </div>
+                     <div class="col-sm-12" style="text-align: justify; background: #395f97; color: #ffffff;">
+                       1.    Finalidad de la Política
+                    </div>
+                    <div class="col-sm-12" style="text-align: justify;">
+                        
+                            El Rancho San Francisco implementa esta Política con la finalidad de dar cumplimiento a lo dispuesto en la Ley Orgánica de Protección de Datos Personales (“LOPDP”) y demás normativa aplicable. 
+                            En este sentido, el Rancho San Francisco respetará todos los derechos reconocidos a los titulares de los datos personales, los principios y obligaciones desarrolladas en la LOPDP y su Reglamento, así como resoluciones que emitidas por la Autoridad de Protección de Datos.                
+                    </div>
+                    <div class="col-sm-12" style="overflow-y: scroll; text-align: justify; background: #395f97; color: #ffffff;">
+                      2.    Alcance de la Política
+                    </div>
+                    <div class="col-sm-12" style="text-align: justify;">
+                        La Política es de aplicación obligatoria para todos los residentes, trabajadores, socios, visitantes, proveedores y demás sujetos relacionados con la urbanización.              
+                    </div>
+                     <div class="col-sm-12" style="overflow-y: scroll; text-align: justify; background: #395f97; color: #ffffff;">
+                     3. Definiciones
+                    </div>
+                     <div class="col-sm-12" style="text-align: justify;">
+                        Las definiciones aquí establecidas son tomadas de la LOPDP:
+
+                        Autoridad de Protección de Datos Personales: Hace referencia a la Superintendencia de Protección de Datos Personales.
+
+                        Base de Datos: Conjunto estructurado de datos cualquiera que fuera la forma, modalidad de creación, almacenamiento, organización, tipo de soporte, tratamiento, procesamiento, localización o acceso, centralizado, descentralizado o repartido de forma funcional o geográfica.
+
+                        Dato Personal: Dato que identifica o hace identificable a una persona natural, directa o indirectamente. Por ejemplo: nombre, cédula de identidad, dirección, correo electrónico, número de teléfono, estado civil, datos de salud, huella dactilar, salario, bienes, estados financieros, etc.
+
+                        Dato Sensible: Datos relativos a: etnia, identidad de género, identidad cultural, religión, ideología, filiación política, pasado judicial, condición migratoria, orientación sexual, salud, datos biométricos, datos genéticos y aquellos cuyo tratamiento indebido pueda dar origen a discriminación, atenten o puedan atentar contra los derechos y libertades fundamentales.
+
+                        Delegado de Protección de Datos: Persona natural encargada de informar al responsable o al encargado del tratamiento sobre sus obligaciones legales en materia de protección de datos, así como de velar o supervisar el cumplimiento normativo al respecto, y de cooperar con la Autoridad de Protección de Datos Personales, sirviendo como punto de contacto entre esta y la entidad responsable del tratamiento de datos.
+
+                        Encargado del Tratamiento: Persona natural o jurídica, pública o privada, que por sí misma o en conjunto con otros, realice el Tratamiento de Datos Personales por cuenta del Responsable del Tratamiento, como aliado o proveedor. En los eventos en que el responsable no ejerza como encargado de la base de datos, se identificará expresamente quién será el encargado.
+
+                        Responsable del Tratamiento: Persona natural o jurídica, pública o privada, autoridad pública, u otro organismo, que solo o conjuntamente con otros decide sobre la finalidad y el
+                        tratamiento de datos personales.
+                         
+                        Titular: Persona natural cuyos datos son objeto del tratamiento.
+
+                        Transferencia o comunicación: Manifestación, declaración, entrega, consulta, interconexión, cesión, transmisión, difusión, divulgación o cualquier forma de revelación de datos personales realizada a una persona distinta al titular, responsable o encargado del tratamiento de datos personales. Los datos personales que comuniquen deben ser exactos, completos y actualizados.
+
+                        Tratamiento: Cualquier operación o conjunto de operaciones realizadas sobre datos personales, ya sea por procedimientos técnicos de carácter automatizado, parcialmente automatizado o no automatizado, tales como: la recogida, recopilación, obtención, registro, organización, estructuración, conservación, custodia, adaptación, modificación, eliminación, indexación, extracción, consulta, elaboración, utilización, posesión, aprovechamiento, distribución, cesión, comunicación o transferencia, o cualquier otra forma de habilitación de acceso, cotejo, interconexión, limitación, supresión, destrucción y, en general, cualquier uso de datos personales.
+             
+                    </div>
+                    <div class="col-sm-12" style="text-align: justify; background: #395f97; color: #ffffff;">
+                        4.  Principios aplicables al tratamiento de los datos personales
+                    </div>
+                     <div class="col-sm-12" style="text-align: justify;">
+                        Los principios que rigen a la Política son los siguientes:
+                        <table class="table table-hoven">
+                            <thead>
+                                <th>Principio</th>
+                                <th>Descripción</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Lealtad 
+                                    </td>
+                                    <td> 
+                                        No se realizará el tratamiento para fines ilícitos.
+                                        El Rancho San Francisco informará a los titulares sobre las finalidades del tratamiento, el plazo de conservación de los datos, las categorías y tipos de datos a ser tratados, y demás requisitos previstos en la LOPDP.
+                                        Los datos se recopilarán y tratarán en virtud de las bases legitimadoras consagradas en el artículo 7 de la LOPDP.
+                                    </td>
+                                </tr> 
+                                <tr>
+                                    <td>Transparencia </td>
+                                    <td>
+                                        El Rancho San Francisco informará a los titulares de forma sencilla y clara sobre la forma como realiza el tratamiento de los datos personales.
+                                        La información será de fácil acceso a través de las políticas y demás instrumentos que el Rancho San Francisco ponga a disposición.
+                                    </td>
+                                </td>
+                                <tr>
+                                    <td> Finalidad </td>
+                                    <td>  
+                                        El Rancho San Francisco informará al titular de los datos personales la o las finalidades para las cuales los datos personales han sido recopilados y serán tratados.
+                                        Las finalidades serán determinadas y específicas de acuerdo con la base legitimadora con la cual los datos fueron recopilados.
+                                        Las finalidades del tratamiento serán relacionadas al objeto social de la compañía.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> Pertinencia y Minimización </td>
+                                    <td> 
+                                        El Rancho San Francisco tratará los datos personales que sean necesarios para las finalidades informadas al titular de los datos personales, no se recopilarán datos en exceso o que no sean necesarios para una finalidad previamente establecida. En caso de tener datos excesivos, el Rancho San Francisco procederá a borrarlos o eliminarlos de sus bases de datos.
+                                        Serán tratados los datos personales necesarios para las finalidades informadas al titular.
+                                    </td>    
+                                </tr>
+                                <tr>
+                                    <td>Proporcionalidad </td>
+                                    <td>
+                                        El Rancho San Francisco no recopilará datos en exceso o que sean innecesarios para la finalidad establecida.
+                                        En el evento de contar con datos excesivos, se procederá a devolverlos al Responsable o titular, o los eliminará de las bases de datos de la compañía.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> Confidencialidad</td>
+                                    <td> El Rancho San Francisco realizará los mejores esfuerzos para garantizar la confidencialidad de los datos personales. El Rancho San Francisco adaptará la tecnología y procesos, técnica y económicamente viables, para garantizar la confidencialidad, disponibilidad e integridad de los datos personales, limitando dentro de lo posible que terceros que no tengan derecho accedan a los datos personales. El Rancho San Francisco no transferirá los datos personales a terceros destinatarios sin la autorización o la base legitimadora correspondiente.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> Conservación </td>
+                                    <td> 
+                                        El Rancho San Francisco conservará los datos personales de acuerdo con las finalidades para los cuales fueron proporcionados por el titular o, de acuerdo con lo establecido en las diferentes bases legitimadoras. Una vez cumplido el período de conservación, el Rancho San Francisco eliminará o borrará los datos de sus sistemas.
+                                        El Rancho San Francisco podrá anonimizar los datos en caso de considerarlo necesario. El dato anonimizado podrá ser libremente utilizado por el Rancho San Francisco.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Seguridad </td>
+                                    <td> 
+                                        El Rancho San Francisco adoptará las medidas de seguridad que sean necesarias para garantizar la confidencialidad de los datos personales, tomando en consideración el tipo de datos personales a ser tratados, así como que, las medidas sean técnica y económicamente viables.
+                                        Todos los proveedores con quienes se comparta datos personales deberán acreditar la implementación de medidas de seguridad que garanticen la protección de datos personales.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Responsabilidad proactiva y demostrada</td>
+                                    <td> 
+                                        El Rancho San Francisco obtendrá los medios de verificación necesarios y correspondientes para demostrar el cumplimiento de la LOPDP. En caso de que sea necesario o a criterio de la urbanización, se obtendrán las certificaciones correspondientes.
+                                        En caso de requerirlo y de acuerdo con la normativa correspondiente, el Rancho San Francisco podrá contar con un Delegado de Protección de Datos (“DPO”), quien será responsable de generar el programa de cumplimiento de datos personales, obtener los medios de verificación correspondientes, obtener las certificaciones necesarias y comunicarse con la Autoridad de Protección de Datos.
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                     </div>
+                     <div class="col-sm-12" style="text-align: justify; background: #395f97; color: #ffffff;">
+                        5.  Derechos de los titulares
+                    </div>
+                    <div class="col-sm-12" style="text-align: justify;">
+                        Los titulares de los datos personales podrán presentar peticiones para que el Rancho San Francisco atienda las solicitudes de ejercicio de derechos.
+                        En este sentido, el Rancho San Francisco garantiza a los titulares los derechos de:
+                        <table class="table table-hoven">
+                            <thead>
+                                <th>Derecho</th>
+                                <th>Descripción</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Información</td>
+                                    <td>Derecho a ser informado conforme los principios de lealtad y transparencia sobre todos los aspectos que indica el artículo 12 de la LOPDP.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Acceso</td>
+                                    <td>Obtener confirmación de si se están tratando o no sus datos personales; recibir una copia de todos sus datos personales que estén siendo procesados por el Rancho San Francisco, salvo las excepciones definidas por la legislación pertinente (por ejemplo, información comercial confidencial, o información que vulneraría demasiado los derechos de privacidad de un tercero); o solicitar información sobre el intercambio de sus datos personales con otras organizaciones.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Rectificación y/o actualización</td>
+                                    <td>Derecho a obtener del Responsable del tratamiento la rectificación y actualización de sus datos personales inexactos o incompletos.
+                                    </td>
+                                </tr>  
+                                <tr>                                                          
+                                    <td>Eliminación </td>
+                                    <td>
+                                        Derecho a que se suprima sus datos personales en los casos que determinar el artículo 15 de la LOPDP.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Oposición </td>
+                                    <td>Derecho a oponerse al tratamiento de sus datos personales en circunstancias particulares determinadas en el artículo 16 de la LOPDP. El Rancho San Francisco deberá dejar de tratar dichos Datos cuando se presente una oposición, a menos que exista una razón específica por la que la oposición no sea válida.
+                                    </td>
+                                </tr>
+                                <tr>                                    
+                                    <td> Suspensión </td>
+                                    <td>derecho a obtener del responsable del tratamiento la suspensión del tratamiento de los datos, cuando se cumpla alguna de las condiciones del artículo 19 de la LOPDP.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        De igual manera, los titulares podrán revocar los consentimientos otorgados, con las limitaciones previstas en la LOPDP.
+
+                    </div>
+                    <div class="col-sm-12" style="text-align: justify; background: #395f97; color: #ffffff;">
+                       6.   Procedimiento para el ejercicio de los derechos
+                    </div>
+                    <div class="col-sm-12" style="text-align: justify;">
+                        El titular de los datos personales podrá solicitar el ejercicio de sus derechos de acceso, rectificación o actualización, eliminación, suspensión, oposición y demás contenidos en la LOPDP.
+
+                        Para ejercer los mencionados derechos, el titular podrá enviar su solicitud a los datos de contacto consignados al final de esta Política.
+
+                        El Rancho San Francisco tendrá el plazo establecido en la LOPDP para responder el requerimiento del titular. Además, podrá solicitar información o datos de soporte para identificar al titular de los datos personales. Los derechos de eliminación y rectificación estarán sujetos a las limitaciones establecidas en la LOPDP.
+
+                        En el evento de que el derecho ejercido no fuese atendido dentro del plazo previsto en la LOPDP, se dejará el derecho a salvo para acudir ante la Autoridad de Protección de Datos Personales.
+                    </div>
+                    <div class="col-sm-12" style="text-align: justify; background: #395f97; color: #ffffff;">
+                       7.   Medidas de seguridad
+                    </div>
+                    <div class="col-sm-12" style="text-align: justify;">
+                        El Rancho San Francisco implementará las medidas de seguridad técnicas, organizativas, jurídicas y físicas que considere adecuadas para proteger los datos personales de acuerdo con el tipo de datos personal y al tratamiento que se realice.
+
+                        De este modo, en la medida de lo posible, el Rancho San Francisco velará por la confidencialidad, integridad, disponibilidad y resiliencia de los datos personales.
+
+                    </div>
+                    <div class="col-sm-12" style="text-align: justify; background: #395f97; color: #ffffff;">
+                      8.    Datos personales recopilados
+                    </div>
+                    <div class="col-sm-12 lista_style" style="text-align: justify;">
+                        El Rancho San Francisco recopila los siguientes datos personales para el cumplimiento de las finalidades del tratamiento.
+
+                        A modo ejemplificativo, pero no limitativa, recopilamos datos personales a través de diversos canales derivados del uso de la plataforma tecnológica de control de accesos a la Urbanización que se soporta en una plataforma de Hikevision, denominada HikeCentral, derivada de esta otra funcionalidad, como la Aplicación Urbanización Rancho San Francisco y un Circuito Cerrado de Televisión que registra imágenes y audio (en determinados sitios) dentro de todo el perímetro de la Urbanización. 
+
+                        Los datos personales que tratamos sobre usted corresponden principalmente a una de las categorías siguientes:
+
+                        <ul  style=" margin: 2px;  padding: 7px; list-style: unset;">
+                            <li>Datos de identificación: Nombres, apellidos, número del documento de identificación, imagen, firma, número de placa vehicular.</li>
+
+                            <li>Datos de contacto: Número de teléfono fijo y celular, dirección de domicilio y trabajo, correo electrónico.</li>
+
+                            <li>Datos relacionados a características personales: Estado civil, fecha de nacimiento, información que consta en la cédula de identidad.. En caso de que se ingrese usando una licencia de conducir, se registra los datos que aparecen en la licencia, como tipo de sangre, tipo de licencia. </li>
+
+                            <li>Datos de circunstancias familiares y sociales: Datos de familiares (nombres y apellidos del cónyuge, padres), nombre de familiares que habitan en la urbanización. Nombres y apellidos de personal de servicio, proveedores que ingresan a la urbanización.</li>
+                        </ul>
+
+
+                        Estos datos serán recopilados y tratados en virtud de las bases legitimadoras consagradas en la LOPDP.
+
+                    </div>
+                    <div class="col-sm-12" style="text-align: justify; background: #395f97; color: #ffffff;">
+                      9.    Tratamientos de los datos personales
+                    </div>
+                    <div class="col-sm-12" style="text-align: justify;">
+
+                        Residentes:
+
+                        La Urbanización agrupa a todos quienes son titulares del dominio o arrendatarios de inmuebles dentro de la urbanización, los datos personales se agrupan para lo siguiente: 
+                        <ul style=" margin: 2px;  padding: 7px; list-style: lower-roman;">
+                            <li style=" margin: 2px;  padding: 7px; list-style: lower-roman;"> Determinar quienes habitan dentro de la Urbanización.</li>
+                            <li style=" margin: 2px;  padding: 7px; list-style: lower-roman;"> Miembros de familia.</li>
+                            <li style=" margin: 2px;  padding: 7px; list-style: lower-roman;">     Personas autorizadas para ingresar a las residencias.</li>
+                            <li style=" margin: 2px;  padding: 7px; list-style: lower-roman;"> Información de vehículos.</li>
+                            <li style=" margin: 2px;  padding: 7px; list-style: lower-roman;"> Información de personal que habita en las residencias.</li>
+                            <li style=" margin: 2px;  padding: 7px; list-style: lower-roman;"> Información de visitas o proveedores.</li>
+                            <li style=" margin: 2px;  padding: 7px; list-style: lower-roman;"> Información de taxis o servicio de entregas.</li>
+                            <li style=" margin: 2px;  padding: 7px; list-style: lower-roman;"> Información de números telefónicos. </li>
+                        </ul>
+
+                        Trabajadores:
+
+                        Dentro de la gestión para el cumplimiento de las obligaciones laborales y de seguridad social, el Rancho San Francisco realiza el tratamiento de los datos personales para las siguientes finalidades informadas:
+                        <ul>
+
+                             <li style=" margin: 2px;  padding: 7px; list-style: lower-roman;"> Pago de remuneraciones y beneficios de ley;</li>
+                            <li style=" margin: 2px;  padding: 7px; list-style: lower-roman;"> Llevar a cabo una comunicación directa por temas relacionados al ámbito laboral;</li>
+                            <li style=" margin: 2px;  padding: 7px; list-style: lower-roman;">     Permisos;</li>
+                            <li style=" margin: 2px;  padding: 7px; list-style: lower-roman;"> Afiliación y aportes a la seguridad social;</li>
+                            <li style=" margin: 2px;  padding: 7px; list-style: lower-roman;"> Almacenar la información en las bases de datos;</li>
+                            <li style=" margin: 2px;  padding: 7px; list-style: lower-roman;"> Seleccionar al personal.</li>
+                        </ul>
+
+                        Proveedores:
+
+                        Los datos de los proveedores del Rancho San Francisco serán tratados para las siguientes finalidades:
+
+                        <ul>
+                            <li style=" margin: 2px;  padding: 7px; list-style: lower-roman;">
+                            El desarrollo, ejecución y cumplimiento de la relación contractual. 
+                            </li>
+
+                        </ul>
+                        Visitantes:
+
+                        Los datos de visitantes a el Rancho San Francisco serán tratados con las siguientes finalidades:
+                        <ul>
+
+                            <li style=" margin: 2px;  padding: 7px; list-style: lower-roman;"> El control y la preservación de la seguridad de las personas y bienes; </li>
+                            <li style=" margin: 2px;  padding: 7px; list-style: lower-roman;">La seguridad de la urbanización; y</li>
+                            <li style=" margin: 2px;  padding: 7px; list-style: lower-roman;">    Comprobación y verificación de la identidad.</li>
+                        </ul>
+
+                    </div>
+                    <div class="col-sm-12" style="text-align: justify; background: #395f97; color: #ffffff;">
+                     10.    Aplicación Móvil
+                    </div>
+                    <div class="col-sm-12 lista_style" style="text-align: justify;">
+                        Los Residentes deben solicitar a la Administración que les instalen la aplicación móvil de la Urbanización Rancho San Francisco en sus dispositivos móviles, esta tiene como finalidad principal la gestión de accesos a la urbanización. Esto incluye:
+                        <ul style=" margin: 2px;  padding: 7px; list-style: disc;">
+                            <li>Facilitar el acceso a la urbanización utilizando la tecnología Face ID o mediante la introducción de un código QR.</li>
+                            <li> Otorgar autorizaciones para el acceso de visitantes, personal de mantenimiento o transporte.</li>
+                            <li> Facilitar la comunicación entre los residentes y la Administración.</li>
+                        </ul>
+                            Para cumplir con las finalidades mencionadas, Rancho San Francisco tratará las siguientes categorías de datos personales:
+                        <ul  style=" margin: 2px;  padding: 7px; list-style: unset;">
+                            <li> Datos identificativos: nombre, apellidos, número de teléfono, dirección de correo electrónico.</li>
+                            <li> Datos biométricos: en caso de que el residente opte por utilizar la tecnología Face ID para acceder a la urbanización, se tratarán los datos biométricos faciales de los Residentes.</li>
+                            <li> Datos de imagen: en caso de que el residente suba una fotografía a su perfil de usuario en la aplicación.</li>
+                            <li> Datos de registro de actividad: fecha y hora de acceso a la aplicación, dispositivos utilizados, etc.</li>
+                            La base legal del tratamiento de los datos personales es el consentimiento expreso del Residente. El Residente podrá revocar su consentimiento en cualquier momento, sin perjuicio de los tratamientos que ya se hubieran realizado con anterioridad.
+                            El Residente está obligado a proporcionar información veraz y completa sobre sus datos personales. En caso de facilitar datos de terceros, declara contar con la debida autorización y estar legitimado para hacerlo. Asimismo, el Residente debe velar por el buen uso de la aplicación móvil y mantenerla actualizada.
+                        </ul>
+
+                    </div>
+                    <div class="col-sm-12" style="text-align: justify; background: #395f97; color: #ffffff;">
+                    11. Transferencias de datos personales
+                    </div>
+                    <div class="col-sm-12" style="text-align: justify;">
+                        El Rancho San Francisco informa que, para preservar la seguridad de la urbanización, cuenta con el apoyo de terceros (proveedores), los cuales podrían acceder a datos personales. Esta relación contractual está sujeta a la LOPDP, quienes están obligados a salvaguardar dichos datos personales, identificando al tercero como Encargado de los datos.
+
+                        De igual manera, podrá almacenar información en bases de datos locales y/o extranjeras.
+
+                        Los destinatarios estarán sujetos a las mismas obligaciones y medidas de seguridad técnicas, físicas, jurídicas y organizativas previstas en la LOPDP y su Reglamento, así como las resoluciones emitidas por la Autoridad de Protección de Datos.
+
+                    </div>
+                    <div class="col-sm-12" style="text-align: justify; background: #395f97; color: #ffffff;">
+                    12. Conservación y eliminación de los datos personales
+                    </div>
+                    <div class="col-sm-12" style="text-align: justify;">
+                        El Rancho San Francisco conservará los datos personales de acuerdo con las finalidades para los cuales fueron proporcionados por el titular o, de acuerdo con lo establecido en las diferentes bases legitimadoras. Una vez cumplido el período de conservación, el Rancho San Francisco eliminará, bloqueará o devolverá los datos almacenados en sus sistemas. 
+                    </div>
+                    <div class="col-sm-12" style="text-align: justify; background: #395f97; color: #ffffff;">
+                        13.  Categorías especiales de datos personales
+                    </div>
+                    <div class="col-sm-12" style="text-align: justify;">
+                        Datos de menores:
+
+                        El Rancho San Francisco solo recopilará datos personales relacionados con niños, niñas y adolescentes para gestión de ingresos o actividades que sean requeridas en la Urbanización. Por lo que, la compañía se reserva el derecho de eliminar o borrar cualquier información relacionada con menores de edad en caso de que un titular de datos personales haya compartido información de menores de edad.
+
+                        Datos de imagen:
+
+                        El Rancho San Francisco podrá tratar datos de imagen obtenidos a través de cámaras de videovigilancia que son de su propiedad con el fin de salvaguardar la seguridad de la urbanización y residentes de esta. La base legal que sustenta este tratamiento es proteger intereses vitales de los titulares y terceros, así como el interés legítimo.
+
+                        El Rancho San Francisco contará con los respectivos avisos de videovigilancia para cumplir con el derecho de información de los titulares. El titular podrá ejercer los derechos descritos en la presente Política en relación con este tratamiento en cualquier momento y de forma gratuita, mediante una comunicación a los datos de contacto señalados. 
+
+                        La duración de las grabaciones de las cámaras de videovigilancia será de hasta treinta (30) días; posterior al plazo señalado, se eliminarán las grabaciones de forma automática.
+
+                        Las grabaciones de las cámaras de videovigilancia se descargarán únicamente en casos de incidentes de seguridad.
+
+                        Únicamente tienen acceso a las grabaciones de seguridad el personal debidamente autorizado.
+
+                    </div>
+                    <div class="col-sm-12" style="text-align: justify; background: #395f97; color: #ffffff;">
+                        14. Datos de contacto
+                    </div>
+                    <div class="col-sm-12 lista_style" style="text-align: justify;">
+                        Los datos de contacto del Rancho San Francisco son los siguientes:
+                        <ul  style=" margin: 2px;  padding: 7px; list-style: unset;">
+                            <li>Dirección: Urbanización Rancho San Francisco, vía a Tanda, Quito, Ecuador</li>
+                            <li>Teléfono: Extensión 1175 desde una residencia dentro de Central Interna de la Urbanización. Desde el exterior: 6046748, solicitar comunicarse con oficina de administración en horario laborable de lunes a viernes. En caso necesario dejar datos y número de contacto a guardia para que le devuelvan llamada.</li>
+                            <li> Correo: admiursf@gmail.com</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-12" style="text-align: justify; background: #395f97; color: #ffffff;">
+                        15. Aprobación y modificación a la Política
+                    </div>
+                    <div class="col-sm-12" style="text-align: justify;">
+                        Esta Política será comunicada a todas las personas relacionadas y que deben cumplir con la misma de acuerdo con lo establecido en el Ámbito de Aplicación. La Política será revisada con periodicidad anual de acuerdo con las actividades comerciales y objetivos estratégicos del Rancho San Francisco. Adicionalmente, la Política podrá ser revisada y adaptada de conformidad con los cambios legales, regulatorios o resoluciones de la Autoridad Competente.
+
+                        La Política ha sido aprobada el 7 de julio de 2024. 
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label><input type="checkbox" name="rbl_terminos" id="rbl_terminos"> Acepto terminos y condiciones</label>           
+                    </div>  
+                </div>
+                 <div class="row">
+                    <div class="col-sm-12">
+                    <button class="btn btn-dark btn-block" onclick="aceptar_terminos()">ok</button>        
+                    </div>  
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

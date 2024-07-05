@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- mobile metas -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://186.4.199.206:7443 data: gap: https://ssl.gstatic.com 'unsafe-eval' https://186.4.199.206:7443; script-src 'self' 'unsafe-inline';  style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; media-src *; img-src 'self' data: content:; connect-src https://186.4.199.206:7443  http://localhost https://localhost https://localhost:4433 https://corsinf.com:447">
+
+
+
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- owl css -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- awesome fontfamily -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/notch.css">
+     <style type="text/css">
+       
+         .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-text {
+            margin-left: 10px; /* Ajusta el margen según sea necesario */
+            font-size: 16px; /* Ajusta el tamaño del texto según sea necesario */
+            line-height: 1.2; /* Ajusta el espaciado entre las líneas del texto */
+            text-align: left; /* Asegura que el texto esté alineado a la izquierda */
+        }
+    </style>
+
+
+    <script type="text/javascript">
+        let link;
+    </script>
+   
+</head>
+<!-- body -->
+
+<body class="main-layout Contact_page" id="deviceready">
+     <script type="text/javascript">
+        document.addEventListener('deviceready', function() {
+            StatusBar.overlaysWebView(false);
+            StatusBar.backgroundColorByHexString('#000000'); // Ajusta el color según tu diseño
+        }, false);
+    </script>
+    <!-- loader  -->
+    <div class="loader_bg" id="pnl_load">
+        <div class="loader"><img src="images/loading3.gif" alt="" /></div>
+        <div>
+        <h1 id="lbl_titulo"></h1>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <!-- end loader -->
+
+
+        <div id="content">
+            <!-- header -->
+            <header>
+                <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+                   <a class="navbar-brand" href="inicio.html">
+                        <div class="brand-container">
+                            <img src="img/logo.png" width="45" height="45" alt="">
+                            <div class="brand-text">
+                                Rancho<br>San Francisco
+                            </div>
+                        </div>
+                    </a>
+                    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="inicio.html">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="visitantes.html">Invitados</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="email.html">Comunicaciones</a>
+                            </li>
+                             <li class="nav-item">
+                                <a class="nav-link" href="informacion.html">Información</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="perfil.html">Perfil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" onclick="eliminar_session()">Salir</a>
+                            </li>
+                            <!--  <li class="nav-item">
+        <a class="nav-link disabled">D</a>
+    </li> -->
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            <br />
+            <br />
+            <br />
+            <!-- end header -->
+            <div class="blog" style="padding-top: 0px;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form class="main_form">
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <!-- Añade 'text-center' aquí -->
+                                        <h2 class="black"><strong>Comunicaciones</strong></h2>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                                                       
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <b>Para:<span style="color:red"> admiursf@gmail.com</span></b>
+                                        <input type="text" name="txt_to" id="txt_to" class="form-control" placeholder="example@example.com" value="admiursf@gmail.com" style="display:none;">
+                                    </div>                                    
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <b>Asunto<span style="color:red">*</span></b>
+                                        <input class="form-control" placeholder="Asunto" type="text" name="txt_asunto" id="txt_asunto">
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <b>Contenido<span style="color:red">*</span></b>
+                                        <textarea class="form-control" rows="4" style="border: 1px solid;" placeholder="Contenido" name="txt_body" id="txt_body"></textarea>
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <b>Seleccione Archivo</b>
+                                       <input type="file" class="form-control" id="txt_file" name="txt_file">
+                                    </div>
+
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 text-center">
+                                        <br>
+                                        <button type="button" id="btn_registrar" onclick="enviar_email()" class="btn btn-dark btn-block">Enviar email</button>
+                                        <!--  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                                        Open modal
+                                        </button> -->
+                                    </div>
+
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- end header -->
+                <!-- footer -->
+                <footer class="bg-light text-dark mt-5">
+                    <div class="container text-center text-md-left py-3">
+                        <!-- Grid row -->
+                        <div class="row">
+                            <!-- Grid column -->
+                            <div class="col-md-12 mt-md-0 mt-3">
+                                <!-- Content -->
+                                <h6 class="text-uppercase font-weight-bold">Rancho San Francisco</h6>
+                                <p>© 2024 Derechos Reservados</p>
+                            </div>
+                            <!-- Grid column -->
+                        </div>
+                        <!-- Grid row -->
+                    </div>
+                    <!-- Footer Text -->
+                </footer>
+                <!-- end footer -->
+
+            </div>
+        </div>
+        <div class="overlay"></div>
+        <!-- Javascript files-->
+
+        <script src="cordova.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/init.js"></script>
+
+        <script src="js/session.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+        <script src="js/jquery-3.0.0.min.js"></script>
+        <!-- <script src="js/sweetalert2@11.js"></script> -->
+        <!-- <script src="js/encoding.js"></script> -->
+        <script src="js/hikphp.js"></script>
+        <!-- <script src="js/cordova_http.js"></script> -->
+        <script>
+            $(document).ready(function () {
+                //  $('#fileInput').on('change', function() {
+                //     var fileURI = $(this).val(); // Obtener la URI del archivo seleccionado
+                //     var serverURL = 'http://example.com/upload'; // URL del servidor para subir el archivo
+
+                //     var options = new FileUploadOptions();
+                //     options.fileKey = 'file';
+                //     options.fileName = fileURI.substr(fileURI.lastIndexOf('/') + 1);
+                //     options.mimeType = 'application/octet-stream';
+                //     options.chunkedMode = false;
+
+                //     var ft = new FileTransfer();
+                //     ft.upload(fileURI, encodeURI(serverURL), function(result) {
+                //         console.log('Archivo subido correctamente: ' + result.responseCode);
+                //     }, function(error) {
+                //         console.log('Error al subir archivo: ' + error.code);
+                //     }, options);
+                // });
+            })
+        </script>
+        
+</body>
+
+</html>
+<div id="myModalE" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">       
+        <!-- <h4 class="modal-title">QR de visitante</h4> -->
+      </div>
+      <div class="modal-body">
+         <img src="images/loading3.gif" alt="">
+         <h4 class="modal-title">Enviando email...</h4>     
+      </div>
+      <!-- <div class="modal-footer"> -->
+        <!-- <button type="button" class="btn btn-primary" id="btnCompartir">Compartir</button> -->
+        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button> -->
+      <!-- </div> -->
+    </div>
+
+  </div>
+</div>

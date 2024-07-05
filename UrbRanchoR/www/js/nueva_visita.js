@@ -124,6 +124,7 @@ function addVisita()
 		'desde':$('#txt_desde').val(),
 		'hasta':$('#txt_hasta').val(),
         'proposito':$('#ddl_proposito').val(),
+        'Tipo':'R',
 	}
 
     $('#pnl_load').css('display','initial');

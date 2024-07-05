@@ -468,8 +468,12 @@ class ConnectHikcentral
                 'foto'=>''
             );
         	$hik->VisitanteNew($parametros);
-        	$acc = $this->addAccess($credenciales['IAR'],$data1['data']['visitorId']);
+
         	$acc = $this->addAccess($credenciales['IAG'],$data1['data']['visitorId']);
+        	if($parametros['Tipo']=='R')
+        	{
+        		$acc = $this->addAccess($credenciales['IAR'],$data1['data']['visitorId']);
+        	}        	
 
         	// print_r($acc);die();
         	return array('resp'=>1,'msj'=>'Visita generada correctamente');

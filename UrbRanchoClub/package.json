@@ -1,0 +1,50 @@
+{
+  "name": "io.cordova.hellocordova",
+  "displayName": "HelloCordova",
+  "version": "1.0.0",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "cordova": "^12.0.0",
+    "cordova-android": "^12.0.1",
+    "cordova-ios": "^7.1.0",
+    "cordova-plugin-android-permissions": "^1.1.5",
+    "cordova-plugin-contacts": "^3.0.1",
+    "cordova-plugin-file": "^8.1.0",
+    "cordova-plugin-file-transfer": "^2.0.0",
+    "cordova-plugin-filechooser": "^1.2.0",
+    "cordova-plugin-fingerprint-aio": "^6.0.0",
+    "cordova-plugin-x-socialsharing": "^6.0.4",
+    "es6-promise-plugin": "^4.2.2"
+  },
+  "cordova": {
+    "platforms": [
+      "android",
+      "ios"
+    ],
+    "plugins": {
+      "cordova-plugin-x-socialsharing": {},
+      "cordova-plugin-filechooser": {},
+      "cordova-plugin-file": {
+        "ANDROIDX_WEBKIT_VERSION": "1.4.0"
+      },
+      "cordova-plugin-file-transfer": {},
+      "cordova-plugin-contacts": {},
+      "cordova-plugin-fingerprint-aio": {
+        "FACEID_USAGE_DESCRIPTION": " "
+      },
+      "cordova-plugin-android-permissions": {}
+    }
+  },
+  "dependencies": {
+    "html-to-image": "^1.11.11"
+  }
+}

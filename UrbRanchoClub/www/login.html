@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light dark">
+        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- owl css -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <!-- style css -->
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+     
+     <script type="text/javascript">
+       function mostrar_clave()
+       {
+         var pa =document.getElementById("txt_pass");
+         if(pa.type == 'password')
+         {
+            pa.type = 'text';
+         }else
+         {
+            pa.type = 'password';
+         }
+       }
+       function sinEspacios(campo)
+       {
+         var datos = document.getElementById(campo).value;
+         data = datos.trim()
+         document.getElementById(campo).value = data;
+         // console.log(datos);
+       }
+       function SoloMinusculas(campo)
+       {
+         var datos = document.getElementById(campo).value;
+         data = datos.toLowerCase ()
+         document.getElementById(campo).value = data;
+         // console.log(datos);
+       }
+
+        
+        </script>
+    <style type="text/css">
+  
+         .form-control {
+     border: #fff solid 2px;
+     border-radius: inherit;
+     margin-bottom: 25px;
+     padding: 15px 20px;
+     font-family: poppins;
+}
+ .form-control:focus {
+     box-shadow: inherit;
+     border: #000 solid 2px !important;
+}
+ .form-control:focus {
+     border-color: #000 !important;
+     box-shadow: 0 0 0 .2rem rgba(255, 255, 255, .25);
+}
+
+    </style>
+    <!-- responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+ 
+
+        <title>Login</title>        
+       
+    </head>
+    <body>
+        <div class="app">
+            <div id="devicereadyL" class="blink">
+            </div>
+            <br />
+            <div class="row" style="color:gray">
+                <b style="font-size: large;">Usuario</b>
+                <input type="hidden" name="" id="txt_id" value="69921">
+                <input type="text" id="txt_usuario" name="txt_usuario" class="form-control" style="border: 1px solid #000000; display: none;" onblur="sinEspacios('txt_usuario');validarUsuario()">
+                <b style="font-size: large;">Correo</b>
+                <input type="text" id="txt_correo" name="txt_correo" class="form-control" style="border: 1px solid #000000;" onblur="sinEspacios('txt_correo');SoloMinusculas('txt_correo')">
+                <b style="font-size: large;">Contraseña</b>
+                <div class="input-group mb-3">
+                   <input type="password" id="txt_pass" name="txt_pass" class="form-control" style="border: 1px solid #000000;">       
+                   <button type="button" class="btn btn-dark btn-flat btn-sm" onclick="mostrar_clave()" style="width: 15%;"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                </div>
+                <div class="input-group mb-3">
+                   <label><input type="checkbox" id="rbl_recordarme" name="rbl_recordarme" checked style="border: 1px solid #000000;"> Recordar mis datos</label>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col text-center" style="padding:0px">
+                    <button type="button" class="btn btn-dark btn-block" onclick="iniciar_session()">Iniciar sesión</button>
+                </div>               
+            </div>
+            <div class="row mt-3">                
+                <div class="col text-center" style="padding:0px">
+                    <a class="" href="recuperar_pass.html">Recuperar contraseña</a>
+                </div>
+            </div>
+
+        </div>
+        
+        <script src="cordova.js"></script>
+        <!-- <script src="js/index.js"></script>     -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-3.0.0.min.js"></script>  
+        <script src="js/bootstrap.bundle.min.js"></script>  
+        <script src="js/init.js"></script>      
+        <script src="js/login.js"></script>   
+
+         <script type="text/javascript">
+           $(document).ready(function() {      
+
+             // crecordar_usuario();              
+           })
+
+
+           function crecordar_usuario()
+           {
+                try
+                {
+                    $('#txt_usuario').val(localStorage.getItem('log_usu'));
+                    $('#txt_correo').val(localStorage.getItem('log_correo'));
+                    $('#txt_id').val(localStorage.getItem('log_id'));    
+                    // validarUsuario();      
+             //Init();
+
+                }catch(e)
+                {
+                    console.log(e)
+
+                }
+
+           }
+
+           function limpiar()
+           {
+             $('#txt_usuario').val();
+             $('#txt_pass').val();
+             $('#txt_correo').val();
+           }
+        </script>
+        <div class="modal" id="myModal" data-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5>Mas de un usuario encontrado</h5>
+                    </div>
+                    <div class="modal-body text-center" id="pnl_contenido">
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="limpiar()">Cerrar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </body>
+</html>

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="io.api.connect.ranchoC" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+    <preference name="SwiftVersion" value="5.0" />
+
+    <name>Urb Rancho San Francisco</name>
+    <description>Aplicacion de reserva del rancho san francisco</description>
+    <author email="dev@cordova.apache.org" href="https://cordova.apache.org">
+        Api Connect Team
+    </author>
+    <content src="index.html" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-navigation href="*" />
+
+    <icon src="res/icon/android/logo.png" density="ldpi" />
+    <platform name="ios">
+        <icon src="res/icon/ios/logo1.png" width="58" height="58"/>
+        <icon src="res/icon/ios/logo2.png" width="87" height="87" />
+        <icon src="res/icon/ios/logo3.png" width="80" height="80" />
+        <icon src="res/icon/ios/logo4.png" width="120" height="120" />
+        <icon src="res/icon/ios/logo5.png" width="180" height="180" />
+        <allow-navigation href="about:blank" />
+
+        <preference name="DisallowOverscroll" value="true" />
+        <preference name="StatusBarOverlaysWebView" value="false" />
+        <preference name="StatusBarBackgroundColor" value="#000000" /> <!-- Puedes cambiar el color según tu diseño -->
+
+
+
+        <config-file platform="ios" target="*-Info.plist" parent="NSFaceIDUsageDescription">
+            <string>Reason for using Face ID</string>
+        </config-file>
+        <config-file platform="ios" target="*-Info.plist" parent="NSBiometricUsageDescription">
+            <string>Reason for using biometrics</string>
+        </config-file>
+    </platform>
+
+    <platform name="android">
+        <config-file parent="/*" target="AndroidManifest.xml" xmlns:android="http://schemas.android.com/apk/res/android">
+            <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+        </config-file>
+    </platform>
+    
+    <edit-config file="*-Info.plist" mode="merge" target="NSContactsUsageDescription">
+        <string>Se buscara en sus contactos para recuperar el nuemro de telefono</string>
+    </edit-config>
+</widget>
