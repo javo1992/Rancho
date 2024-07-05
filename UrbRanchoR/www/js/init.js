@@ -1,3 +1,5 @@
+
+var ip_server_php = 'https://ipcrweb.com/Rancho_San_Franscisco_APP/hikphp/';
 var ip_server_php = 'https://corsinf.com:447/pruebas/appPrueba/hikphp/';
 // var ip_server_php = '../../UrbRanchoR/hikphp/';
 
