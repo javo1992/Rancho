@@ -3,7 +3,7 @@
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <preference name="SwiftVersion" value="5.0" />
 
-    <name>Urb Rancho San Francisco</name>
+    <name>Club Rancho San Francisco</name>
     <description>Aplicacion de reserva del rancho san francisco</description>
     <author email="dev@cordova.apache.org" href="https://cordova.apache.org">
         Api Connect Team
