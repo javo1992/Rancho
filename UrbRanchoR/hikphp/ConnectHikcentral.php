@@ -406,6 +406,7 @@ class ConnectHikcentral
 		$credenciales = $recursos->Init();
 		$link = "/api/visitor/v1/appointment";
 		$hash = $this->hash->generar_hash($link,1);
+		$tipo = $parametros['Tipo'];
 
 		$param = array(
 		        "receptionistId"=>$parametros['residente'],
@@ -473,7 +474,7 @@ class ConnectHikcentral
             );
         	$hik->VisitanteNew($parametros);
         	$acc = $this->addAccess($credenciales['IAG'],$data1['data']['visitorId']);
-        	if($parametros['Tipo'] == 'C')
+        	if($tipo == 'R')
         	{
         		$acc = $this->addAccess($credenciales['IAR'],$data1['data']['visitorId']);
         	}
