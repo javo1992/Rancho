@@ -15,11 +15,24 @@
 
     <icon src="res/icon/android/logo.png" density="ldpi" />
     <platform name="ios">
-        <icon src="res/icon/ios/logo1.png" width="58" height="58"/>
-        <icon src="res/icon/ios/logo2.png" width="87" height="87" />
-        <icon src="res/icon/ios/logo3.png" width="80" height="80" />
-        <icon src="res/icon/ios/logo4.png" width="120" height="120" />
-        <icon src="res/icon/ios/logo5.png" width="180" height="180" />
+
+        <icon src="res/icon/ios/Icon-App-20x20@1x.png"/>
+        <icon src="res/icon/ios/Icon-App-20x20@2x.png"/>
+        <icon src="res/icon/ios/Icon-App-20x20@3x.png" />
+        <icon src="res/icon/ios/Icon-App-29x29@1x.png" />
+        <icon src="res/icon/ios/Icon-App-29x29@2x.png" />
+        <icon src="res/icon/ios/Icon-App-29x29@3x.png" />
+        <icon src="res/icon/ios/Icon-App-40x40@1x.png" />
+        <icon src="res/icon/ios/Icon-App-40x40@2x.png" />
+        <icon src="res/icon/ios/Icon-App-40x40@3x.png" />
+        <icon src="res/icon/ios/Icon-App-60x60@2x.png" />
+        <icon src="res/icon/ios/Icon-App-60x60@2x.png" />
+        <icon src="res/icon/ios/Icon-App-60x60@3x.png" />
+        <icon src="res/icon/ios/Icon-App-76x76@1x.png" />
+        <icon src="res/icon/ios/Icon-App-76x76@2x.png" />
+        <icon src="res/icon/ios/Icon-App-83.5x83.5@2x.png" />
+        <icon src="res/icon/ios/ItunesArtwork@2x.png" />
+
         <allow-navigation href="about:blank" />
 
         <preference name="DisallowOverscroll" value="true" />
