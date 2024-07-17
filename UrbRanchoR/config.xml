@@ -35,7 +35,7 @@
         <icon src="res/icon/ios/logo1.png" width="58" height="58"/>
         <!-- <icon src="res/icon/ios/logo2.png" width="87" height="87" /> -->
         <!-- <icon src="res/icon/ios/logo3.png" width="80" height="80" /> -->
-        <!-- <icon src="res/icon/ios/logo4.png" width="120" height="120" /> -->
+        <icon src="res/icon/ios/logo4.png" width="120" height="120" />
         <!-- <icon src="res/icon/ios/logo5.png" width="180" height="180" /> -->
 
         <allow-navigation href="about:blank" />
