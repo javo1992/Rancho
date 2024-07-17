@@ -15,13 +15,13 @@
 
     <icon src="res/icon/android/logo.png" density="ldpi" />
     <platform name="ios">
-<!-- 
+
         <icon src="res/icon/ios/Icon-App-20x20@1x.png"/>
         <icon src="res/icon/ios/Icon-App-20x20@2x.png"/>
         <icon src="res/icon/ios/Icon-App-20x20@3x.png" />
         <icon src="res/icon/ios/Icon-App-29x29@1x.png" />
         <icon src="res/icon/ios/Icon-App-29x29@2x.png" />
-        <icon src="res/icon/ios/Icon-App-29x29@3x.png" />
+        <icon src="res/icon/ios/Icon-App-29x29@3x.png" /><!-- 
         <icon src="res/icon/ios/Icon-App-40x40@1x.png" />
         <icon src="res/icon/ios/Icon-App-40x40@2x.png" />
         <icon src="res/icon/ios/Icon-App-40x40@3x.png" />
