@@ -32,6 +32,12 @@
         <icon src="res/icon/ios/Icon-App-76x76@2x.png" />
         <icon src="res/icon/ios/Icon-App-83.5x83.5@2x.png" />
         <icon src="res/icon/ios/ItunesArtwork@2x.png" />
+        <icon src="res/icon/ios/logo.png" />
+        <icon src="res/icon/ios/logo1.png" />
+        <icon src="res/icon/ios/logo2.png" />
+        <icon src="res/icon/ios/logo3.png" />
+        <icon src="res/icon/ios/logo4.png" />
+        <icon src="res/icon/ios/logo5.png" />
 
         <allow-navigation href="about:blank" />
 
