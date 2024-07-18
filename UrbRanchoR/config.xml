@@ -16,9 +16,9 @@
     <icon src="res/icon/android/logo.png" density="ldpi" />
     <platform name="ios">
     
-
-        <icon src="res/icon/ios/Icon-App-20x20@1x.png"  width="20" height="20" />
-    <!-- <icon src="res/icon/ios/Icon-App-20x20@2x.png"/>
+    <!-- 
+        <icon src="res/icon/ios/Icon-App-20x20@1x.png"/>
+        <icon src="res/icon/ios/Icon-App-20x20@2x.png"/>
         <icon src="res/icon/ios/Icon-App-20x20@3x.png" />
         <icon src="res/icon/ios/Icon-App-29x29@1x.png" />
         <icon src="res/icon/ios/Icon-App-29x29@2x.png" />
@@ -41,8 +41,8 @@
 
 <!-- 
         <icon src="res/icon/ios/152x152.png" />
-        <icon src="res/icon/ios/167x167.png" />
-        <icon src="res/icon/ios/1024x1024.png" /> -->
+        <icon src="res/icon/ios/167x167.png" /> -->
+        <icon src="res/icon/ios/1024x1024.png" width="1024" height="1024" />
 
 
         <allow-navigation href="about:blank" />
