@@ -16,8 +16,8 @@
     <icon src="res/icon/android/logo.png" density="ldpi" />
     <platform name="ios">
     
-        <icon src="res/icon/ios/Icon-100.png" width="100" heigth ="100"/>
-        <icon src="res/icon/ios/Icon-1024.png" width="1024" heigth ="1024"/>
+        <icon src="res/icon/ios/Icon-100.png" width="100" height ="100"/>
+        <icon src="res/icon/ios/Icon-1024.png" width="1024" height ="1024"/>
         <icon src="res/icon/ios/Icon-114.png" />
         <icon src="res/icon/ios/Icon-120.png" />
         <icon src="res/icon/ios/Icon-128.png" />
