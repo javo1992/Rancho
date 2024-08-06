@@ -80,4 +80,15 @@
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Este aplicativo necesita acceso a la galería de fotos para seleccionar imágenes." />
         <variable name="MICROPHONE_USAGE_DESCRIPTION" value="Este aplicativo necesita acceso al micrófono para grabar videos." />
     </plugin>
+
+    <config-file platform="ios" target="*-Info.plist" parent="NSCameraUsageDescription">
+    <string>Este aplicativo necesita acceso a la cámara para tomar fotos.</string>
+</config-file>
+<config-file platform="ios" target="*-Info.plist" parent="NSPhotoLibraryUsageDescription">
+    <string>Este aplicativo necesita acceso a la galería de fotos para seleccionar imágenes.</string>
+</config-file>
+<config-file platform="ios" target="*-Info.plist" parent="NSMicrophoneUsageDescription">
+    <string>Este aplicativo necesita acceso al micrófono para grabar videos.</string>
+</config-file>
+
 </widget>
