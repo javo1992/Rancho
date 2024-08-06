@@ -289,6 +289,28 @@
         //     }
         // }, false);
 
+            document.addEventListener('deviceready', function() {
+            // Configurar opciones para usar la cámara
+            var cameraOptions = {
+                quality: 50,
+                destinationType: Camera.DestinationType.DATA_URL,
+                sourceType: Camera.PictureSourceType.CAMERA,
+                encodingType: Camera.EncodingType.JPEG,
+                mediaType: Camera.MediaType.PICTURE,
+                allowEdit: false,
+                saveToPhotoAlbum: false
+            };
+
+            // Intentar usar la cámara para solicitar permisos
+            navigator.camera.getPicture(function(imageData) {
+                // Si se llega aquí, los permisos fueron otorgados
+                console.log("Permiso para la cámara concedido.");
+            }, function(message) {
+                // El mensaje de error puede ser debido a la falta de permisos
+                console.error("Permiso para la cámara denegado o error al usar la cámara: " + message);
+            }, cameraOptions);
+        }, false);
+
 
 
 
