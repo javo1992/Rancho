@@ -67,7 +67,6 @@
     <div class="loader_bg" id="pnl_load">
         <div class="loader"><img src="images/loading3.gif" alt="" /></div>
         <div>
-        <h1 id="lbl_titulo"></h1>
         </div>
     </div>
 
@@ -129,39 +128,25 @@
                                 <div class="row">
                                     <div class="col-md-12 text-center">
                                         <!-- Añade 'text-center' aquí -->
-                                        <h2 class="black"><strong>Comunicaciones</strong></h2>
+                                        <h2 class="black"><strong id="lbl_titulo"></strong></h2>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                                                        
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                        <b>Para:<span style="color:red"> admiursf@gmail.com</span></b>
-                                        <input type="text" name="txt_to" id="txt_to" class="form-control" placeholder="example@example.com" value="admiursf@gmail.com" style="display:none;">
+                                       <p id="lbl_cuerpo"></p>
                                     </div>                                    
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                        <b>Asunto<span style="color:red">*</span></b>
-                                        <input class="form-control" placeholder="Asunto" type="text" name="txt_asunto" id="txt_asunto">
+                                        <b>Fotos<span style="color:red">*</span></b>
+                                        <div class="row" id="img_fotos">
+                                        	
+                                        </div>
                                     </div>
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                        <b>Contenido<span style="color:red">*</span></b>
-                                        <textarea class="form-control" rows="4" style="border: 1px solid;" placeholder="Contenido" name="txt_body" id="txt_body"></textarea>
-                                    </div>
+                                   
 
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                        <button id="uploadButton" type="button" class="btn btn-primary btn-block">Subir Archivo</button>                                        
-                                        <span id="fileName" class="file-name">No se ha seleccionado ningún archivo</span>
-                                        <input type="file" id="fileInput" style="display: none;">
-                                    </div>
 
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 text-center">
-                                        <br>
-                                        <button type="button" id="btn_registrar" onclick="enviar_email()" class="btn btn-dark btn-block">Enviar email</button>
-                                        <!--  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                                        Open modal
-                                        </button> -->
-                                    </div>
-
+                                   
                                 </div>
                             </form>
 
@@ -213,36 +198,40 @@
         <script>
 
             $(document).ready(function () {
-                
+            	const url = new URL(window.location.href);
+            	const params = new URLSearchParams(url.search);
+            	const id = params.get('id');
+
+
+            	 cargar_noticia(id);                
             })
 
-            document.getElementById('uploadButton').addEventListener('click', function() {
-                document.getElementById('fileInput').click();
-            });
-
-            document.getElementById('fileInput').addEventListener('change', function() {
-                // Aquí puedes manejar los archivos seleccionados
-                const file = this.files[0];
-                const fileNameElement = document.getElementById('fileName');
-                if (file) {
-                    // console.log('Archivo seleccionado:', file.name);
-                     fileNameElement.textContent = file.name;
-                } else {
-                    // console.log('No se seleccionó ningún archivo');
-                    fileNameElement.textContent = 'No se ha seleccionado ningún archivo';
-                }
-            });
-
-
-            function limpiar()
-            {
-                $('#txt_asunto').val('');
-                $('#txt_body').val('')
-                const fileNameElement = document.getElementById('fileName');
-                fileNameElement.textContent = 'No se ha seleccionado ningún archivo';
-              
-                $('#fileInput').val('')
-
+          
+            function cargar_noticia(id)
+            {                       
+	            link = 'hikControl.php?detalleNoticias=true';
+	            var parametros = 
+	            {
+	            	'id':id,
+	            }
+	            $.ajax({
+	                url :ip_server_php+link,
+	                data:{parametros,parametros},
+	                type : 'POST',
+	                dataType: 'json',
+	                // contentType: 'application/json',    
+	                success : function(response) {
+	                    // $('#pnl_noticias').html(response);
+	                    $('#lbl_titulo').text(response.titulo);
+	                    $('#lbl_cuerpo').text(response.cuerpo);
+	                    $('#img_fotos').html(response.fotos);
+	                    console.log(response);
+	                },
+	                error : function(xhr, status) {
+	                    alert('Disculpe, existió un problema');
+	                  //  console.log(xhr);
+	                },
+	            });
             }
 
         </script>

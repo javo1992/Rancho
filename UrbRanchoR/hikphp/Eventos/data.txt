@@ -1,0 +1,5 @@
+{"timestamp":"2024-08-05 17:09:34","data":{"name":"manolo","last":"mane"}}
+{"timestamp":"2024-08-05 17:09:40","data":{"name":"manoloaaa","last":"maneddd"}}
+{"timestamp":"2024-08-05 17:28:43","data":{"namess":"manoloaaa","last":"maneddd"}}
+{"name":"Add your name in the body","conf":"01","timestamp":"2024-08-05 17:51:06"}
+{"method":"OnEventNotify","params":{"sendTime":"2024-08-05T10:51:36-05:00","ability":"event_acs","events":[{"eventId":"49C6DFCA41F342ACAB9B005235E0BEAF","srcIndex":"157","srcType":"door","srcName":"FACIAL SALIDA EMPLEADOS PISCINA","eventType":196893,"status":0,"happenTime":"2024-08-05T10:51:35-05:00","data":{"cardNo":"","personId":"50595","personCode":"3206738845","checkInAndOutType":0,"picUri":"","temperatureData":"","temperatureStatus":0,"wearMaskStatus":2,"readerIndexCode":"136","readerName":"Cardreader 01"}}]},"isHistory":0,"timestamp":"2024-08-05 18:27:18"}

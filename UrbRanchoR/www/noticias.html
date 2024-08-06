@@ -129,34 +129,36 @@
                                 <div class="row">
                                     <div class="col-md-12 text-center">
                                         <!-- Añade 'text-center' aquí -->
-                                        <h2 class="black"><strong>Comunicaciones</strong></h2>
+                                        <h2 class="black"><strong>Noticias</strong></h2>
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                                                       
+                                <div class="row">                                   
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                        <b>Para:<span style="color:red"> admiursf@gmail.com</span></b>
-                                        <input type="text" name="txt_to" id="txt_to" class="form-control" placeholder="example@example.com" value="admiursf@gmail.com" style="display:none;">
-                                    </div>                                    
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                        <b>Asunto<span style="color:red">*</span></b>
-                                        <input class="form-control" placeholder="Asunto" type="text" name="txt_asunto" id="txt_asunto">
+                                        <b>Titulo<span style="color:red">*</span></b>
+                                        <input class="form-control" placeholder="Titulo de noticia" type="text" name="txt_titulo" id="txt_titulo">
                                     </div>
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                         <b>Contenido<span style="color:red">*</span></b>
                                         <textarea class="form-control" rows="4" style="border: 1px solid;" placeholder="Contenido" name="txt_body" id="txt_body"></textarea>
                                     </div>
+                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" id="pnl_foto" style="display:none;">
+                                       <img src="" id="img_foto">
+                                    </div>
+                                   <!--   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <button id="takePhoto" type="button" class="btn btn-primary btn-block"><i class="fa fa-camera"></i> Tomar una foto</button>                                        
+                                    </div> -->
 
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                        <button id="uploadButton" type="button" class="btn btn-primary btn-block">Subir Archivo</button>                                        
+                                        <button id="uploadButton" type="button" class="btn btn-primary btn-block"><i class="fa fa-file"></i> Subir Archivo</button>                                        
                                         <span id="fileName" class="file-name">No se ha seleccionado ningún archivo</span>
-                                        <input type="file" id="fileInput" style="display: none;">
+                                        <input type="file" name="files[]" id="fileInput" style="display: none;" multiple >
+                                        <input type="input" name="txt_tipo_archivo" id="txt_tipo_archivo" style="display: none;" value="0">
                                     </div>
 
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 text-center">
                                         <br>
-                                        <button type="button" id="btn_registrar" onclick="enviar_email()" class="btn btn-dark btn-block">Enviar email</button>
+                                        <button type="button" id="btn_registrar" onclick="subir_noticias()" class="btn btn-dark btn-block">Subir Noticia</button>
                                         <!--  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
                                         Open modal
                                         </button> -->
@@ -216,25 +218,25 @@
                 
             })
 
-            document.getElementById('uploadButton').addEventListener('click', function() {
-                document.getElementById('fileInput').click();
-            });
+           document.getElementById('uploadButton').addEventListener('click', function() {
+                $('#txt_tipo_archivo').val(0);
+			    document.getElementById('fileInput').click();
+			});
 
-            document.getElementById('fileInput').addEventListener('change', function() {
-                // Aquí puedes manejar los archivos seleccionados
-                const file = this.files[0];
-                const fileNameElement = document.getElementById('fileName');
-                if (file) {
-                    // console.log('Archivo seleccionado:', file.name);
-                     fileNameElement.textContent = file.name;
-                } else {
-                    // console.log('No se seleccionó ningún archivo');
-                    fileNameElement.textContent = 'No se ha seleccionado ningún archivo';
-                }
-            });
+			document.getElementById('fileInput').addEventListener('change', function() {
+			    const files = this.files;
+			    const fileNameElement = document.getElementById('fileName');
+			    
+			    if (files.length > 0) {
+			        const fileNames = Array.from(files).map(file => file.name).join(', ');
+			        fileNameElement.textContent = fileNames;
+			    } else {
+			        fileNameElement.textContent = 'No se ha seleccionado ningún archivo';
+			    }
+			});
 
 
-            function limpiar()
+            function limpiar_noticias()
             {
                 $('#txt_asunto').val('');
                 $('#txt_body').val('')
@@ -244,6 +246,29 @@
                 $('#fileInput').val('')
 
             }
+
+            // document.getElementById('takePhoto').addEventListener('click', function() {
+
+            //     $('#txt_tipo_archivo').val(1);
+            //     navigator.camera.getPicture(onSuccess, onFail, {
+            //         quality: 50,
+            //         destinationType: Camera.DestinationType.DATA_URL
+            //     });
+            // });
+
+            // function onSuccess(imageData) {
+            //     var image = "data:image/jpeg;base64," + imageData;
+            //     $('#img_foto').prop('src',image);
+            //     $('#pnl_foto').css('display','block');
+            //     document.getElementById('fileInput').value = imageData; // Asigna la foto al input de archivo
+            // }
+
+            // function onFail(message) {
+            //     alert('Failed because: ' + message);
+            // }
+
+
+
 
         </script>
         

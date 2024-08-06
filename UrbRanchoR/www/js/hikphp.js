@@ -96,7 +96,7 @@ function enviar_email()
         return false;
     }
 
-    var fileInput = document.getElementById('txt_file'); // Obtener el elemento de entrada de archivo
+    var fileInput = document.getElementById('fileInput'); // Obtener el elemento de entrada de archivo
     var file = fileInput.files[0]; // Obtener el primer archivo seleccionado
 
     var formData = new FormData(); // Crear objeto FormData
@@ -122,6 +122,71 @@ function enviar_email()
            if(response==1)
            {
             alert("Email Enviado");
+            limpiar();
+           }else if(response==-2)
+           {
+            alert("Formato de archivo invalido");            
+           }
+           else
+           {
+            alert("No se pudo enviar el email");
+           }
+        },
+        error : function(xhr, status) {
+
+    // $('#myModalE').modal('hide');
+    
+    $('#pnl_load').css('display','initial');
+            $('#lbl_titulo').text('');
+            alert('Disculpe, existió un problema');
+            //console.log(xhr);
+        },
+    });
+}
+
+
+function subir_noticias()
+{
+    if($('#txt_to').val()=='' || $('#txt_asunto').val()=='' || $('#txt_body').val()=='')
+    {
+        alert("Llene todo los datos","info");
+        return false;
+    }
+
+    var fileInput = document.getElementById('fileInput'); // Obtener el elemento de entrada de archivo
+    // var file = fileInput.files[0]; // Obtener el primer archivo seleccionado
+     var file = fileInput.files; // Obtener el primer archivo seleccionado
+
+
+
+    var formData = new FormData(); // Crear objeto FormData
+    formData.append('asunto', $('#txt_titulo').val());
+    formData.append('body', $('#txt_body').val());
+
+    for (var i = 0; i < file.length; i++) {
+        formData.append('file[]', file[i]); // Nota: 'files[]' es importante para enviar múltiples archivos
+    }
+
+    // formData.append('file', file); // Adjuntar archivo al FormData
+
+ // console.log(formData);
+    $('#pnl_load').css('display','initial');    
+    // $('#lbl_titulo').text('Enviando Email');
+    $.ajax({
+        url :ip_server_php+'hikControl.php?subirNoticias=true',
+        data:formData,
+        type : 'POST',
+        contentType: false, // Importante: desactivar contentType para que jQuery no procese los datos
+        processData: false, // Importante: desactivar processData para que jQuery no convierta el FormData en una cadena
+        dataType :'json',
+        success : function(response) {
+            console.log(response);
+            $('#pnl_load').css('display','none');
+            $('#lbl_titulo').text('');
+           if(response==1)
+           {
+            alert("Noticia Subida");
+            limpiar_noticias();
            }else if(response==-2)
            {
             alert("Formato de archivo invalido");            

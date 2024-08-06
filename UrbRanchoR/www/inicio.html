@@ -67,7 +67,7 @@
         <h1 id="lbl_titulo"></h1>
     </div>
 
-    <div class="wrapper">
+    <div class="wrapper" id="deviceready">
         <!-- end loader -->
 
 
@@ -119,6 +119,67 @@
             <!-- end header -->
             <div class="blog" style="padding-top: 0px;">
                 <div class="container">
+                    <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3 mt-3">
+                       <div class="col" onclick="location.href='nuevo_visitante.html'">
+                            <div class="card radius-10" style="height: 188px;">
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <div class="widgets-icons rounded-circle mx-auto bg-light-warning text-warning">
+                                            <i class="fa fa-user" style="font-size: 50px;"></i>
+                                        </div>
+                                        <p class="mb-0 text-secondary" style="font-13">Cree y comparta acceso de forma rápida con sus invitados.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col" onclick="location.href='visitantes.html'">
+                            <div class="card radius-10"  style="height: 188px;">
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <div class="widgets-icons rounded-circle mx-auto bg-light-warning text-warning">
+                                            <i class="fa fa-list" style="font-size: 50px;"></i>
+                                        </div>
+                                        <p class="mb-0 text-secondary" style="font-13">Historial de invitados generados por fecha.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col" onclick="location.href='email.html'">
+                            <div class="card radius-10"  style="height: 188px;">
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <div class="widgets-icons rounded-circle mx-auto bg-light-warning text-warning">
+                                            <i class="fa fa-envelope-o" style="font-size: 50px;"></i>
+                                        </div>
+                                        <p class="mb-0 text-secondary" style="font-13">Comunique a Administacion desde el aplicativo.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col" onclick="location.href='noticias.html'">
+                            <div class="card radius-10"  style="height: 188px;">
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <div class="widgets-icons rounded-circle mx-auto bg-light-warning text-warning">
+                                            <i class="fa  fa-newspaper-o" style="font-size: 50px;"></i>
+                                        </div>
+                                        <p class="mb-0 text-secondary" style="font-13">Comparta noticias desde el aplicativo.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1>Noticias</h1>                    
+                        </div>
+                        <div class="col-12" id="pnl_noticias">
+                    
+                    
+                        </div>
+                    </div>
+<!-- 
                     <div class="row">
                         <div class="col-md-12">
                             <form class="main_form">
@@ -150,6 +211,7 @@
                                                 <p class="card-text">Comunique o comparta información desde el aplicativo.</p>
                                                 <br />
                                                 <a href="email.html" class="btn btn-dark">Comunicaciones</a>
+                                                <a href="noticias.html" class="btn btn-dark">Noticias</a>
                                             </div>
                                         </div>
                                     </div>
@@ -161,7 +223,7 @@
                             </form>
 
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- end header -->
@@ -189,12 +251,16 @@
         <div class="overlay"></div>
         <!-- Javascript files-->
 
+    <script src="cordova.js"></script>
+    <script src="js/index.js"></script>  
     <script src="js/jquery.min.js"></script>
-    <script src="js/init.js"></script>      
+    <script src="js/init.js"></script>        
     <script src="js/session.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script> 
+    <script src="js/session.js"></script>
+    <!-- <script src="js/onesignal.js"></script>  revisar est de las notificaciones  -->
     <!-- <script src="js/encoding.js"></script> -->
 
     <!-- <script src="js/jquery-3.0.0.min.js"></script> -->
@@ -238,7 +304,9 @@
     <script>
         $(document).ready(function () {
             terminos = localStorage.getItem('terminos');
-            console.log(terminos);
+            pass_recu = localStorage.getItem('pass_recu');
+            // console.log(terminos);
+         
             if(terminos==null)
             {
                 $('#myModal_terminos').modal('show');
@@ -250,7 +318,20 @@
                     location.href = 'login.html';
                 }
             }
-            validar_session2()
+            if(pass_recu=='1')
+            {
+                $('#myModal_recuperar').modal('show');
+                $('#myModal_terminos').modal('hide');
+            }else
+            {
+
+                $('#myModal_recuperar').modal('hide');
+            }
+
+                // $('#myModal_recuperar').modal('show');   
+            validar_session2();
+            noticias();
+
         })
 
         function aceptar_terminos()
@@ -263,6 +344,138 @@
             }
 
         }
+
+        function noticias()
+        {          
+            link = 'hikControl.php?Noticias=true';
+            $.ajax({
+                url :ip_server_php+link,
+                // data:{parametros,parametros},
+                type : 'POST',
+                dataType: 'json',
+                // contentType: 'application/json',    
+                success : function(response) {
+                    $('#pnl_noticias').html(response);
+                },
+                error : function(xhr, status) {
+                    alert('Disculpe, existió un problema');
+                  //  console.log(xhr);
+                },
+            });
+        }
+        function cambiar_clave()
+        {
+            var new_pass = $('#txt_new_pass').val();
+            var rep_pass = $('#txt_rep_pass').val();
+            if(new_pass!=rep_pass)
+            {
+                alert("Las contraseñas no coinciden");
+                return false;
+            }
+
+            if(new_pass=='' || rep_pass=='')
+            {
+                alert('La clave no puede estar vacia');
+                return false;
+            }
+
+
+            if($('#lbl_respuesta').html()!='')
+            {
+                alert('Asegurese de que la clave cumpla todos los parametros')
+                return false;
+            }
+            link = 'ConnectHikcentral.php?EditarClaveHik=true';
+            var usu = localStorage.getItem('Id');
+            parametros = 
+            {
+                'usuario':usu,
+                'clave':new_pass,
+            }
+
+                $.ajax({
+                    url :ip_server_php+link,
+                    data:{parametros,parametros},
+                    type : 'POST',
+                    dataType: 'json',
+                    // contentType: 'application/json',    
+                    success : function(response) {
+                        // alert(response.msj);
+                        if(response.resp==1)
+                        {
+                            localStorage.setItem('pass_recu', '0');
+                            localStorage.setItem('Password',new_pass);
+                            alert("Clave cambiada con exito");
+                            location.reload();              
+                        }
+                        
+                    },
+                    error : function(xhr, status) {
+                        alert('Disculpe, existió un problema');
+                      //  console.log(xhr);
+                    },
+                });
+            }
+
+        function mostrar_clave_new()
+       {
+         var pa =document.getElementById("txt_new_pass");
+         if(pa.type == 'password')
+         {
+            pa.type = 'text';
+         }else
+         {
+            pa.type = 'password';
+         }
+       }
+
+        function mostrar_clave_rep()
+       {
+         var pa =document.getElementById("txt_rep_pass");
+         if(pa.type == 'password')
+         {
+            pa.type = 'text';
+         }else
+         {
+            pa.type = 'password';
+         }
+       }
+
+       function validarContrasena(contrasena) {
+            // Expresión regular para verificar los requisitos básicos de la contraseña
+            // const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*)[A-Za-z\d@$!%*?&]{8,}$/;
+
+            // Validaciones específicas
+            const requisitos = [
+                { test: /[a-z]/, mensaje: "Debe contener al menos una letra minúscula." },
+                { test: /[A-Z]/, mensaje: "Debe contener al menos una letra mayúscula." },
+                { test: /\d/, mensaje: "Debe contener al menos un número." },
+                // { test: /[@$!%*?&]/, mensaje: "Debe contener al menos un carácter especial (@, $, !, %, *, ?, &)." },
+                { test: /.{8,}/, mensaje: "Debe tener al menos 8 caracteres." }
+            ];
+
+            // Crear un array con los mensajes de error
+            const errores = requisitos.filter(r => !r.test.test(contrasena)).map(r => r.mensaje);
+
+            // Mensaje de éxito o errores
+            if (regex.test(contrasena)) {
+
+                $('#lbl_respuesta').html('');
+                // return {
+                //     valido: true,
+                //     mensaje: "La contraseña es segura."
+                // };
+            } else {
+                $('#lbl_respuesta').html(errores.join("<br>"));
+                console.log( )
+                // return {
+                //     valido: false,
+                //     mensaje: "La contraseña no es segura:\n" + errores.join("\n")
+                // };
+            }
+        }
+
     </script>
       
     
@@ -270,6 +483,44 @@
 </body>
 
 </html>
+
+ <div class="modal" id="myModal_recuperar" data-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content"> 
+        <div class="modal-header">
+            <h2>Cambio de clave</h2>
+        </div>          
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <b> Nueva clave</b>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" style="border:1px solid" name="txt_new_pass" id="txt_new_pass" onkeyup="validarContrasena(this.value)">
+                            <button type="button" class="btn btn-dark btn-flat btn-sm" onclick="mostrar_clave_new()" style="width: 15%;"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                        </div>                       
+                    </div>
+                    <div class="col-sm-12" id="lbl_respuesta">
+                            
+                    </div>
+                    <div class="col-sm-12">
+                        <b>Repetir clave</b>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" style="border:1px solid" name="txt_rep_pass" id="txt_rep_pass">
+                            <button type="button" class="btn btn-dark btn-flat btn-sm" onclick="mostrar_clave_rep()" style="width: 15%;"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                        </div> 
+
+                    </div>
+                </div> 
+                 <div class="row">
+                    <div class="col-sm-12">
+                    <button class="btn btn-dark btn-block" onclick="cambiar_clave()">Cambiar clave</button>        
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
  <div class="modal" id="myModal_terminos" data-backdrop="static">
     <div class="modal-dialog modal-dialog-centered">

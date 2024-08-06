@@ -171,6 +171,7 @@ function recuperar_pass()
 	    success : function(response) {
 
            $('#myModal_espera').modal('hide');
+           localStorage.setItem('pass_recu', '1');
 	    	alert(response.msj);
 	    	if(response.resp==1)
 	    	{

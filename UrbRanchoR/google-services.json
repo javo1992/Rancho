@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "45042009330",
+    "project_id": "urb-rancho-san-francisco",
+    "storage_bucket": "urb-rancho-san-francisco.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:45042009330:android:31d92e4baa49bdaf153c6b",
+        "android_client_info": {
+          "package_name": "io.cordova.hellocordova"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClw_jYiOgavVEGmR2zBZ2ixzgjMvhQcpk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
