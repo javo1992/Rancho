@@ -269,25 +269,25 @@
             //     alert('Failed because: ' + message);
             // }
 
-             document.addEventListener('deviceready', function() {
-            // Solicitar acceso a la cámara
-            navigator.camera.getPicture(onSuccess, onFail, {
-                quality: 50,
-                destinationType: Camera.DestinationType.DATA_URL,
-                sourceType: Camera.PictureSourceType.CAMERA,
-                allowEdit: false,
-                saveToPhotoAlbum: false
-            });
+        //      document.addEventListener('deviceready', function() {
+        //     // Solicitar acceso a la cámara
+        //     navigator.camera.getPicture(onSuccess, onFail, {
+        //         quality: 50,
+        //         destinationType: Camera.DestinationType.DATA_URL,
+        //         sourceType: Camera.PictureSourceType.CAMERA,
+        //         allowEdit: false,
+        //         saveToPhotoAlbum: false
+        //     });
 
-            function onSuccess(imageData) {
-                var image = document.getElementById('myImage');
-                image.src = "data:image/jpeg;base64," + imageData;
-            }
+        //     function onSuccess(imageData) {
+        //         var image = document.getElementById('myImage');
+        //         image.src = "data:image/jpeg;base64," + imageData;
+        //     }
 
-            function onFail(message) {
-                alert('Failed because: ' + message);
-            }
-        }, false);
+        //     function onFail(message) {
+        //         alert('Failed because: ' + message);
+        //     }
+        // }, false);
 
 
 
