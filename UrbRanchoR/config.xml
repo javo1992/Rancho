@@ -81,12 +81,16 @@
         <variable name="MICROPHONE_USAGE_DESCRIPTION" value="Este aplicativo necesita acceso al micrófono para grabar videos." />
     </plugin>
 
-   <edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
-        <string>need camera access to take pictures</string>
-    </edit-config>
-    <edit-config target="NSPhotoLibraryUsageDescription" file="*-Info.plist" mode="merge">
-        <string>need photo library access to get pictures from there</string>
-    </edit-config>
+     <config-file platform="ios" target="*-Info.plist" parent="NSCameraUsageDescription">
+        <string>Este aplicativo necesita acceso a la cámara para tomar fotos.</string>
+    </config-file>
+    <config-file platform="ios" target="*-Info.plist" parent="NSPhotoLibraryUsageDescription">
+        <string>Este aplicativo necesita acceso a la galería de fotos para seleccionar imágenes.</string>
+    </config-file>
+    <config-file platform="ios" target="*-Info.plist" parent="NSMicrophoneUsageDescription">
+        <string>Este aplicativo necesita acceso al micrófono para grabar videos.</string>
+    </config-file>
+
     <edit-config target="NSLocationWhenInUseUsageDescription" file="*-Info.plist" mode="merge">
         <string>need location access to find things nearby</string>
     </edit-config>
