@@ -73,4 +73,11 @@
     <edit-config file="*-Info.plist" mode="merge" target="NSContactsUsageDescription">
         <string>Se buscara en sus contactos para recuperar el nuemro de telefono</string>
     </edit-config>
+
+     <!-- Configuración del plugin de cámara -->
+    <plugin name="cordova-plugin-camera" spec="6.0.0">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value="Este aplicativo necesita acceso a la cámara para tomar fotos." />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Este aplicativo necesita acceso a la galería de fotos para seleccionar imágenes." />
+        <variable name="MICROPHONE_USAGE_DESCRIPTION" value="Este aplicativo necesita acceso al micrófono para grabar videos." />
+    </plugin>
 </widget>

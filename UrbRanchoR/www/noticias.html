@@ -247,25 +247,25 @@
 
             }
 
-            // document.getElementById('takePhoto').addEventListener('click', function() {
+            document.getElementById('takePhoto').addEventListener('click', function() {
 
-            //     $('#txt_tipo_archivo').val(1);
-            //     navigator.camera.getPicture(onSuccess, onFail, {
-            //         quality: 50,
-            //         destinationType: Camera.DestinationType.DATA_URL
-            //     });
-            // });
+                $('#txt_tipo_archivo').val(1);
+                navigator.camera.getPicture(onSuccess, onFail, {
+                    quality: 50,
+                    destinationType: Camera.DestinationType.DATA_URL
+                });
+            });
 
-            // function onSuccess(imageData) {
-            //     var image = "data:image/jpeg;base64," + imageData;
-            //     $('#img_foto').prop('src',image);
-            //     $('#pnl_foto').css('display','block');
-            //     document.getElementById('fileInput').value = imageData; // Asigna la foto al input de archivo
-            // }
+            function onSuccess(imageData) {
+                var image = "data:image/jpeg;base64," + imageData;
+                $('#img_foto').prop('src',image);
+                $('#pnl_foto').css('display','block');
+                document.getElementById('fileInput').value = imageData; // Asigna la foto al input de archivo
+            }
 
-            // function onFail(message) {
-            //     alert('Failed because: ' + message);
-            // }
+            function onFail(message) {
+                alert('Failed because: ' + message);
+            }
 
 
 
