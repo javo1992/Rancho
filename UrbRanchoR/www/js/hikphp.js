@@ -1,5 +1,6 @@
 function lista_visitantes()
 {
+    fecha_now = fecha_actual();
     var parametros = {
         'fecha':$("#txt_fecha").val(),
         'usuario':localStorage.getItem('Id'),
@@ -15,15 +16,15 @@ function lista_visitantes()
         	tr = '';
         	if(response.length==0){tr+=`<tr"><td colspan='2'>Sin visitas este dia</td></tr>`;}
         	response.forEach(function(item,i){
+                let datePart = item.FechaIni.split(' ')[0];
         		tr+=`<tr ">
     				<td style="width:30%">`
-    				if(item.Foto!='' && item.Foto!=null){
-                        // console.log(item.Foto)
-    					tr+=`<img src="data:.*;base64,`+item.Foto+`">`;
-    				}else{
-    					tr+=`<img src="images/user.png">`;
-    				}
-                    tr+=`<button type="button" class="btn btn-default btn-sm" style="align-items: center;display: inline-flex;" onclick="show_ticket(`+item.Id+`)"><i style="padding-right:6px;font-size: 33px;" class="fa fa-qrcode"></i>  compartir</button>`;
+    				tr+=`<img src="images/user.png">`;
+                    console.log(datePart+'-'+fecha_now);
+                    if(datePart==fecha_now)
+                    {
+                        tr+=`<button type="button" class="btn btn-default btn-sm" style="align-items: center;display: inline-flex;" onclick="show_ticket(`+item.Id+`)"><i style="padding-right:6px;font-size: 33px;" class="fa fa-qrcode"></i>  compartir</button>`;
+                    }
     				tr+=`</td>
     				<td onclick="perfil_visitas(`+item.Id+`)">
     					<strong class="black">Nombre:</strong><br> <strong class="black"> `+item.NombreVisitante+`</strong>
@@ -70,15 +71,31 @@ function datos_visitante(id)
         dataType :'json',
         success : function(response) {
             console.log(response);
-            if(response[0].Foto!='' && response[0].Foto!=null){
-            	$('#img_foto').attr('src','data:image/jpeg;base64,'+response[0].Foto);
-        	}
+           
             $('#img_qr').attr('src','data:image/jpeg;base64,'+response[0].Qr);
             $('#img_qr2').attr('src','data:image/jpeg;base64,'+response[0].Qr);
             $('#lbl_nombre').text(response[0].NombreVisitante)            
             $('#lbl_fechas').text(response[0].FechaIni +' - '+response[0].FechaFin)
             $('#lbl_fechasf').text(response[0].FechaFin)
             $('#lbl_fechasi').text(response[0].FechaIni)
+
+            if(response[0].FotoEntrada!='')
+            {
+                let fotos = JSON.parse(response[0].FotoEntrada);
+
+                var img = '';
+                fotos.forEach(function(item,i){
+                    img+='<b style="color:#ffffff">Foto '+(i+1)+'</b> <br> <img src="'+item+'" style="width:auto; background:#fff" alt="#" />';
+                })
+
+                $('#img_ingresos').html(img);                
+                $('#pnl_fotos').css('display','block');
+            }
+
+            console.log(fotos);
+
+
+
         },
         error : function(xhr, status) {
             alert('Disculpe, existió un problema');
@@ -187,6 +204,7 @@ function subir_noticias()
            {
             alert("Noticia Subida");
             limpiar_noticias();
+            location.href = "inicio.html";
            }else if(response==-2)
            {
             alert("Formato de archivo invalido");            
@@ -206,4 +224,16 @@ function subir_noticias()
             //console.log(xhr);
         },
     });
+}
+
+function fecha_actual()
+{
+    let today = new Date();
+    let year = today.getFullYear();
+    let month = String(today.getMonth() + 1).padStart(2, '0'); // Los meses comienzan desde 0
+    let day = String(today.getDate()).padStart(2, '0');
+
+    let formattedDate = `${year}-${month}-${day}`;
+
+    return formattedDate;
 }

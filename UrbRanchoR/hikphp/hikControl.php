@@ -62,6 +62,11 @@ if(isset($_GET['detalleNoticias']))
 	$parametros = $_POST['parametros'];
 	echo json_encode($controlador->detalleNoticias($parametros));
 }
+if(isset($_GET['boton_panico']))
+{
+	// $parametros = $_POST['parametros'];
+	echo json_encode($controlador->boton_panico());
+}
 
 class hikControl
 {
@@ -102,8 +107,8 @@ class hikControl
 	function VisitanteNew($parametros)
 	{
 
-		$sql = "INSERT INTO Visitas  (FechaIni,FechaFin,Qr,NombreVisitante,Residente,IdHik,Foto) 
-		VALUE ('".$parametros['fechaIni']."','".$parametros['fechafin']."','".$parametros['qr']."','".$parametros['nombre']."','".$parametros['residente']."','".$parametros['idhik']."','".$parametros['foto']."')";
+		$sql = "INSERT INTO Visitas  (FechaIni,FechaFin,Qr,NombreVisitante,Residente,IdHik,FotoEntrada,userIdNotification) 
+		VALUE ('".$parametros['fechaIni']."','".$parametros['fechafin']."','".$parametros['qr']."','".$parametros['nombre']."','".$parametros['residente']."','".$parametros['idhik']."','".$parametros['foto']."','".$parametros['PlayerId']."')";
 		$datos = $this->db->sql_string($sql);
 		return $datos;
 	}
@@ -431,6 +436,12 @@ class hikControl
 
 		return array('titulo'=>$datos[0]['titulo_noticias'],'cuerpo'=>$datos[0]['cuerpo_noticias'],'fecha'=>$datos[0]['fecha_noticia'],'fotos'=>$html);
 
+	}
+
+	function boton_panico()
+	{
+
+		return 1;
 	}
 }
 ?>

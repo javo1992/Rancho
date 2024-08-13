@@ -125,6 +125,7 @@ function addVisita()
 		'hasta':$('#txt_hasta').val(),
         'proposito':$('#ddl_proposito').val(),
         'Tipo':'R',
+        'PlayerId': $('#txt_userId').val(),
 	}
 
     $('#pnl_load').css('display','initial');

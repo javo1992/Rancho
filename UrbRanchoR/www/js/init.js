@@ -95,3 +95,27 @@ function eliminar_session()
 	localStorage.removeItem('Admin');
 	location.href = 'index.html';
 }
+
+function boton_panico()
+{
+	var link = 'hikControl.php?Settings=true';
+	// form = $('#Form_danger').serialize(); 
+	$.ajax({
+	    url :ip_server_php+link,
+	    // data:form,
+	    type : 'POST',
+        dataType: 'json',
+	    // contentType: 'application/json',	   
+	    success : function(response) {
+	    	if(response==1)
+	    	{
+	    		alert("Boton de panico Activado")
+	    	}	    	
+	    },
+	    error : function(xhr, status) {
+	        alert('Disculpe, existió un problema');
+	      //  console.log(xhr);
+	    },
+	});
+
+}

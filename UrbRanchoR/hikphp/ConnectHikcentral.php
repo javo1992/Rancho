@@ -470,7 +470,8 @@ class ConnectHikcentral
                 'fechafin'=>$parametros["fecha"].' '.$parametros['hasta'].':00',
                 'nombre'=> $parametros['nombre'].' '.$parametros['apellido'],
                 'residente'=>$parametros['residente'],
-                'foto'=>''
+                'foto'=>'',
+                'PlayerId'=>$parametros['PlayerId']
             );
         	$hik->VisitanteNew($parametros);
         	$acc = $this->addAccess($credenciales['IAG'],$data1['data']['visitorId']);
@@ -614,5 +615,40 @@ class ConnectHikcentral
 	    }
 	    return $randomString;
 	}
+
+
+
+	function TakePhotoOnline($camara)
+	{
+		$recursos = new hikControl();	
+		$credenciales = $recursos->Init();
+		$link = "/api/video/v1/camera/capture";
+		$hash = $this->hash->generar_hash($link,1);
+		$param = array(
+		     "cameraIndexCode" => $camara
+		);
+        $param = json_encode($param);
+
+		$header_http = $this->hash->cabeceras_http($hash['token'],$param);	
+
+		$url = 'https://'.$credenciales['hikvision'].'/artemis'.$link;
+        $context = stream_context_create($header_http);
+        $response = file_get_contents($url, false, $context);
+        if ($response === FALSE) {
+            throw new Exception("Error en la solicitud HTTP.");
+        }
+        $data = ($response);
+        if ($data === null) {
+            throw new Exception("Error al decodificar la respuesta JSON.");
+        }
+
+         $data1 = json_decode($data,true);
+
+         // print_r($data1);
+         return $data1 = $data1['data'];
+        
+
+	}
+
 }
 ?>

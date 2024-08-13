@@ -87,8 +87,8 @@ class hikControl
 	function VisitanteNew($parametros)
 	{
 
-		$sql = "INSERT INTO Visitas  (FechaIni,FechaFin,Qr,NombreVisitante,Residente,IdHik,Foto) 
-		VALUE ('".$parametros['fechaIni']."','".$parametros['fechafin']."','".$parametros['qr']."','".$parametros['nombre']."','".$parametros['residente']."','".$parametros['idhik']."','".$parametros['foto']."')";
+		$sql = "INSERT INTO Visitas  (FechaIni,FechaFin,Qr,NombreVisitante,Residente,IdHik,FotoEntrada,userIdNotification) 
+		VALUE ('".$parametros['fechaIni']."','".$parametros['fechafin']."','".$parametros['qr']."','".$parametros['nombre']."','".$parametros['residente']."','".$parametros['idhik']."','".$parametros['foto']."','".$parametros['VisitanteNew']."')";
 		$datos = $this->db->sql_string($sql);
 		return $datos;
 	}

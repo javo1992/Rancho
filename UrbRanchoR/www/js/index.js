@@ -27,3 +27,29 @@ function onDeviceReady() {
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
 }
+
+
+document.addEventListener('deviceready', function() {
+    var oneSignal = window.plugins.OneSignal;
+
+    oneSignal.setAppId("f7939ef1-1530-4969-a9ee-12a9cf1ff4b1");
+
+    oneSignal.setNotificationOpenedHandler(function(jsonData) {
+        console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+    });
+
+    oneSignal.promptForPushNotificationsWithUserResponse(function(accepted) {
+        console.log("User accepted notifications: " + accepted);
+
+
+        oneSignal.getDeviceState(function(state) {
+            var playerId = state.userId;
+            console.log('Player ID: ' + playerId);
+            localStorage.setItem('PlayerId', playerId);
+        });
+
+    });
+
+
+
+}, false);
