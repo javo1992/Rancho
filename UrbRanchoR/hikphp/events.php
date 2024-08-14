@@ -65,7 +65,7 @@ if(isset($_GET['EnviarNoti']))
 	$apiKey = 'MjdhMWIwMDctYjRhZi00MGZhLTg5ZTEtOGM0OTFiMzE5YzFh';
 	$title = 'Pruena php';
 	$message = 'Hola prueba php';
-	$playerIds = array('31e238c8-e3d1-4f78-9d1c-c721e8548122');
+	$playerIds = array('31e238c8-e3d1-4f78-9d1c-c721e8548122','f998215f-b494-43a1-8115-3932a3e76a74');
 	echo json_encode($eventos->sendPushNotification($appId, $apiKey, $title, $message, $playerIds));
 }
 
