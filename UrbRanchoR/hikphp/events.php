@@ -27,30 +27,77 @@ if(isset($_GET['EntranteHik']))
 {
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	      // Datos recibidos
-    $timestamp = date('Y-m-d H:i:s');
-    $jsonInput = file_get_contents('php://input'); // Obtener el JSON crudo
-    $dataArray = json_decode($jsonInput, true); // Decodificar el JSON en un array asociativo
+	    $timestamp = date('Y-m-d H:i:s');
+	    $jsonInput = file_get_contents('php://input'); // Obtener el JSON crudo
+	    $dataArray = json_decode($jsonInput, true); // Decodificar el JSON en un array asociativo
 
-    // Verificar si el JSON es válido
-    if (json_last_error() === JSON_ERROR_NONE) {
-        // Agregar timestamp al array
-        $dataArray['timestamp'] = $timestamp;
-        
-        if($dataArray['params']['events'][0]['srcIndex']=='157' && $dataArray['params']['events'][0]['eventType']=='198914')
-         {
-        	$IdPerson = $dataArray['params']['events'][0]['data']["personId"];
-        	$eventos->takePhoto($IdPerson);
-        	$jsonData = json_encode($dataArray);
-        	// file_put_contents('Eventos/data.txt', $jsonData . "\n", FILE_APPEND);
-        	// // Respuesta
-        	// header('Content-Type: application/json');
-    	}
-        // echo json_encode(['status' => 'success', 'data' => $dataArray]);
-    } 
-        // else {
-    //     // Responder con un error si el JSON no es válido
-    //     header('Content-Type: application/json');
-    //     echo json_encode(['status' => 'error', 'message' => 'Invalid JSON']);
+	    // Verificar si el JSON es válido
+	    if (json_last_error() === JSON_ERROR_NONE) 
+	    {
+	    	if($dataArray['params']['events'][0]['eventType']=='198914')
+	    	{
+
+	        // Agregar timestamp al array
+	        $dataArray['timestamp'] = $timestamp;
+	        $IdPerson = $dataArray['params']['events'][0]['data']["personId"];
+	        $jsonData = json_encode($dataArray);
+			        	
+			        	
+
+		    	switch ($dataArray['params']['events'][0]['srcIndex']) {
+
+
+		    		case '144':
+		    		//garita principal
+
+		    			$camaras = array('7805');
+		    			$data = $eventos->buscar_visitante($IdPerson);		    			
+		    		 	$eventos->takePhoto($IdPerson,$camaras);
+			        	$playerIds =array($data[0]['id']);
+
+			        	$title = 'Ingreso de Visitante';
+						$message = 'Su visitante acaba de ingresar por garita principal';
+			        	$eventos->sendPushNotification($title, $message, $playerIds);
+
+		    			break;
+
+		    		case '157':
+		    			//garita ingreso piscina
+			        	$data = $eventos->buscar_visitante($IdPerson);
+		    			$camaras = array('396','4609','7821');
+		    		 	$eventos->UpdatetakePhoto($IdPerson,$camaras,$data[0]['FotoEntrada']);
+
+			        	$playerIds =array($data[0]['id']);
+
+			        	$title = 'Ingreso de Visitante';
+						$message = 'Su visitante acaba de ingresar por garita piscina';
+			        	$eventos->sendPushNotification($title, $message, $playerIds);
+
+		    			break;
+		    		case '149':
+
+		    		// garita piscina salida 
+		    			// $camaras = array('401');
+		    		 	// $eventos->takePhoto($IdPerson,$camaras);
+		    			$data = $eventos->buscar_visitante($IdPerson);
+			        	$playerIds =array($data[0]['id']);
+
+			        	$title = 'Salida de Visitante';
+						$message = 'Su visitante acaba de salir por garita piscina';
+			        	$eventos->sendPushNotification($title, $message, $playerIds);
+
+		    			break;
+		    		
+		    		default:
+		    			// code...
+		    			break;
+		    	}
+
+
+			    file_put_contents('Eventos/data.txt', $jsonData . "\n", FILE_APPEND);
+		    }
+	        
+	    } 
     }
 }
 
@@ -61,12 +108,10 @@ if(isset($_GET['eventosEntrante']))
 
 if(isset($_GET['EnviarNoti']))
 {
-	$appId = 'f7939ef1-1530-4969-a9ee-12a9cf1ff4b1';
-	$apiKey = 'MjdhMWIwMDctYjRhZi00MGZhLTg5ZTEtOGM0OTFiMzE5YzFh';
-	$title = 'Pruena php';
-	$message = 'Hola prueba php';
-	$playerIds = array('31e238c8-e3d1-4f78-9d1c-c721e8548122','f998215f-b494-43a1-8115-3932a3e76a74');
-	echo json_encode($eventos->sendPushNotification($appId, $apiKey, $title, $message, $playerIds));
+	$title = 'Ingreso de Visitante';
+	$message = 'Su visitante acaba de ingresar';
+	$playerIds = array('34d6f9db-9454-4b53-bd2e-cb8e082e32c9');
+	echo json_encode($eventos->sendPushNotification($title, $message, $playerIds));
 }
 
 
@@ -78,11 +123,16 @@ class events
 {
 	private $db;
 	private $hikcentral;
+
+	private $appId;
+	private $apiKey;
 	
 	function __construct()
 	{		
 		$this->db = new db();		
 		$this->hikcentral = new ConnectHikcentral();
+		$this->appId = 'f7939ef1-1530-4969-a9ee-12a9cf1ff4b1';
+		$this->apiKey = 'MjdhMWIwMDctYjRhZi00MGZhLTg5ZTEtOGM0OTFiMzE5YzFh';
 	}
 
 
@@ -96,14 +146,31 @@ class events
 		}
 	}
 
-	function takePhoto($IdPerson)
+	function takePhoto($IdPerson,$camaras)
 	{
-		$camaras = array('396','4609','7821');
 		$listaPhotos = array();
 		foreach ($camaras as $key => $value) {
 			$base64 = $this->hikcentral->TakePhotoOnline($value);
 			$listaPhotos[] = $this->SaveImgRepo($base64,$IdPerson,$key+1);
 		}
+		$this->EditarRegistroVisita($listaPhotos,$IdPerson);
+		
+	}
+
+	function UpdatetakePhoto($IdPerson,$camaras,$fotos)
+	{
+		$listaPhotos = json_decode($fotos, true);
+		$num = count($listaPhotos);
+		// $listaPhotos = array();
+		// print_r($listaPhotos);
+		foreach ($camaras as $key => $value) {
+			$base64 = $this->hikcentral->TakePhotoOnline($value);
+			$listaPhotos[] = $this->SaveImgRepo($base64,$IdPerson,$num+1);
+			$num=$num+1;
+		}
+
+		// print_r($listaPhotos);die();
+
 		$this->EditarRegistroVisita($listaPhotos,$IdPerson);
 		
 	}
@@ -137,8 +204,18 @@ class events
 
 	}
 
-	function sendPushNotification($appId, $apiKey, $title, $message, $playerIds) 
+	function buscar_visitante($IdPerson)
 	{
+		$sql = "SELECT userIdNotification as id,FotoEntrada FROM visitas  WHERE IdHik = '".$IdPerson."'";
+		return  $this->db->datos($sql);
+	}
+
+	function sendPushNotification($title, $message, $playerIds) 
+	{
+		$appId = $this->appId;
+		$apiKey = $this->apiKey;
+
+
 	    $content = array(
 	        "en" => $message
 	    );

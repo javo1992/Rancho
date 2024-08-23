@@ -48,6 +48,22 @@ function Init()
 
 			GrupoVehiResidente = response.IGVR;
 			GrupoVehiVistante = response.IGVV;
+			if(response.noticias!='')
+			{
+				// console.log(response.noticias)
+				var usu = localStorage.getItem('Id');
+				var json = JSON.parse(response.noticias);
+				json.forEach(function(item,i){
+					// console.log(item);
+					if(item==usu)
+					{
+						$('#btn_noticias').css('display','initial');
+					}
+				})
+				// console.log(usu);
+				// console.log(json);
+
+			}
 	    },
 	    error : function(xhr, status) {
 	        alert('Disculpe, existió un problema');
@@ -109,7 +125,8 @@ function boton_panico()
 	    success : function(response) {
 	    	if(response==1)
 	    	{
-	    		alert("Boton de panico Activado")
+	    		// alert("Boton de panico Activado")
+	    		// $('#btn_bell').css('color','#efe00f')
 	    	}	    	
 	    },
 	    error : function(xhr, status) {

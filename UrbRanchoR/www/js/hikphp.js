@@ -164,9 +164,9 @@ function enviar_email()
 
 function subir_noticias()
 {
-    if($('#txt_to').val()=='' || $('#txt_asunto').val()=='' || $('#txt_body').val()=='')
+    if($('#txt_titulo').val()=='')
     {
-        alert("Llene todo los datos","info");
+        alert("Coloque un titulo","info");
         return false;
     }
 

@@ -80,7 +80,7 @@ class hikControl
 
 	function Init()
 	{
-		$sql = "SELECT Id as 'Registro',IndexAccesoGarita as 'IAG',IndexAccesoResidentes as 'IAR',IndexGrupoVehiculoResidentes as 'IGVR',IndexGrupoVehiculoVisitantes as 'IGVV',Ip as 'hikvision',Ip_Respaldo as 'respaldo',HikKey as 'hik_key',HikUser as 'hik_usu'  FROM credenciales";
+		$sql = "SELECT Id as 'Registro',IndexAccesoGarita as 'IAG',IndexAccesoResidentes as 'IAR',IndexGrupoVehiculoResidentes as 'IGVR',IndexGrupoVehiculoVisitantes as 'IGVV',Ip as 'hikvision',Ip_Respaldo as 'respaldo',HikKey as 'hik_key',HikUser as 'hik_usu',noticias  FROM credenciales";
 		// print_r($sql);die();
 		$datos = $this->db->datos($sql);
 		return $datos[0];
