@@ -199,7 +199,7 @@ class ConnectHikcentral
 	{
 		$PersonId = $parametros['usuario'];
 		$datos = $this->searchPerson($PersonId);
-		// print_r($datos);
+		// print_r($datos);die();
 		$re = $this->CrearClaveHikEnvio($PersonId,trim($datos['email']),$datos['personName']);
 		if($re==1)
 		{			
@@ -224,6 +224,8 @@ class ConnectHikcentral
 		);
         $param = json_encode($param);
 
+        // print_r($param);die();
+
 		$header_http = $this->hash->cabeceras_http($hash['token'],$param);	
 
 		$url = 'https://'.$credenciales['hikvision'].'/artemis'.$link;
@@ -232,6 +234,7 @@ class ConnectHikcentral
         if ($response === FALSE) {
             throw new Exception("Error en la solicitud HTTP.");
         }
+        // print_r($response);die();
         $data = ($response);
         if ($data === null) {
             throw new Exception("Error al decodificar la respuesta JSON.");
@@ -286,6 +289,7 @@ class ConnectHikcentral
         {
         	$hik = new hikControl();
         	$parametros = array('Correo'=>$correo,'Clave'=>$clave,'nombre'=>$nombre);
+        	// print_r($parametros);die();
         	$resp = $hik->EnviarCorreoClave($parametros);
         	if($resp==1)
         	{
@@ -644,7 +648,7 @@ class ConnectHikcentral
 
          $data1 = json_decode($data,true);
 
-         // print_r($data1);
+         // print_r($data1);die();
          return $data1 = $data1['data'];
         
 

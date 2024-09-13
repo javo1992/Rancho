@@ -4,7 +4,14 @@ function onDeviceReady() {
     document.getElementById('btnCompartir').addEventListener('click', function() {
         convertirDivABase64();
     });
+     document.getElementById('btnCompartir2').addEventListener('click', function() {
+        
+        boton_panico();
+        convertirDivABase64();
+    });
 }
+
+
 
 function base64ToBlob(base64, type = 'image/png') {
     const byteString = atob(base64.split(',')[1]);

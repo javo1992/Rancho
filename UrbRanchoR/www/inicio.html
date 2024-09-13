@@ -83,7 +83,7 @@
                             </div>
                         </div>
                     </a>
-                   <!--   <button class="navbar-toggler collapsed" type="button" onclick="boton_panico()">
+                    <!--  <button class="navbar-toggler collapsed" type="button" onclick="boton_panico()">
                         <i class="fa fa-bell text-warning" style="font-size:28px"></i>
                     </button> -->
                     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -113,10 +113,10 @@
         <a class="nav-link disabled">D</a>
     </li> -->
                         </ul>
-                      <!--   <span class="navbar-text d-none d-md-block">
-                            <button class="btn btn-default" type="button" onclick="boton_panico()">
+                        <!-- <span class="navbar-text d-none d-md-block">
+                            <a href="notificaciones-html" class="btn btn-default">
                                 <i class="fa fa-bell text-warning" style="font-size:28px"></i>
-                            </button>
+                            </a>
                         </span> -->
                     </div>
                 </nav>
@@ -128,7 +128,7 @@
             <div class="blog" style="padding-top: 0px;">
                 <div class="container">
                     <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3 mt-3">
-                       <div class="col" onclick="location.href='nuevo_visitante.html'">
+                       <div class="col-6" onclick="location.href='nuevo_visitante.html'">
                             <div class="card radius-10" style="height: 160px;">
                                 <div class="card-body">
                                     <div class="text-center">
@@ -140,6 +140,24 @@
                                 </div>
                             </div>
                         </div>
+                         <div class="col-6" onclick="location.href='notificaciones.html'">
+                           
+                            <div class="card radius-10" style="height: 160px;">
+                                <div class="card-body">
+                                    <div class="text-center">
+                                         <button type="button" class="btn position-relative me-lg-5" style="background:#fff"> 
+                                            <div class="widgets-icons rounded-circle mx-auto bg-light-warning text-warning">
+                                                <i class="fa fa-bell" style="font-size: 50px;"></i>
+                                            </div>
+                                            <p class="mb-0 text-secondary" style="font-13">Notificaciones.</p>
+                                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display:none;color: #fff;" id="num_notification">1</span>
+                                        </button>
+                            
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="col" onclick="location.href='visitantes.html'">
                             <div class="card radius-10"  style="height: 160px;">
                                 <div class="card-body">
@@ -147,7 +165,7 @@
                                         <div class="widgets-icons rounded-circle mx-auto bg-light-warning text-warning">
                                             <i class="fa fa-list" style="font-size: 50px;"></i>
                                         </div>
-                                        <p class="mb-0 text-secondary" style="font-13">Historial de invitaciones <br>(1 mes).</p>
+                                        <p class="mb-0 text-secondary" style="font-13">Historial de invitaciones <br> (1 mes).</p>
                                     </div>
                                 </div>
                             </div>
@@ -274,6 +292,7 @@
     <!-- <script src="js/jquery-3.0.0.min.js"></script> -->
     <script type="text/javascript">
         $(document).ready(function () {
+            NumeroNotificaciones()
             setTimeout(function () {
                 $('.loader_bg').fadeToggle();
             }, 1500);

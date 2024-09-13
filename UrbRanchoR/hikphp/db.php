@@ -13,8 +13,8 @@ class db
 	
 	function __construct()
 	{
-		$this->host = 'localhost'; // O la dirección IP del servidor MySQL
-		$this->db   = 'rancho';
+		$this->host = 'localhost'; // O la direcciÃ³n IP del servidor MySQL
+		$this->db   = 'test';
 		$this->user = 'root';
 		$this->pass = '';
 		$this->charset = 'utf8mb4'; 

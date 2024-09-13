@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Invitados</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- owl css -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- awesome fontfamily -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/notch.css">
+   
+     <style type="text/css">
+       
+         .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-text {
+            margin-left: 10px; /* Ajusta el margen según sea necesario */
+            font-size: 16px; /* Ajusta el tamaño del texto según sea necesario */
+            line-height: 1.2; /* Ajusta el espaciado entre las líneas del texto */
+            text-align: left; /* Asegura que el texto esté alineado a la izquierda */
+        }
+    </style>
+</head>
+<!-- body -->
+
+<body class="main-layout Contact_page" id="deviceready">
+    <script type="text/javascript">
+        document.addEventListener('deviceready', function() {
+            StatusBar.overlaysWebView(false);
+            StatusBar.backgroundColorByHexString('#000000'); // Ajusta el color según tu diseño
+        }, false);
+    </script>
+    <!-- loader  -->
+    <div class="loader_bg">
+        <div class="loader"><img src="images/loading3.gif" alt="" /></div>
+    </div>
+
+    <div class="wrapper">
+        <!-- end loader -->
+        <div id="content">
+            <!-- header -->
+            <header>
+                <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+                    <a class="navbar-brand" href="inicio.html">
+                        <div class="brand-container">
+                            <img src="img/logo.png" width="45" height="45" alt="">
+                            <div class="brand-text">
+                                Rancho<br>San Francisco
+                            </div>
+                        </div>
+                    </a>
+                   <!--   <button class="navbar-toggler collapsed" type="button" onclick="boton_panico()">
+                        <i class="fa fa-bell text-warning" style="font-size:28px"></i>
+                    </button> -->
+                    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="inicio.html">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="visitantes.html">Invitados</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="email.html">Comunicaciones</a>
+                            </li>
+                             <li class="nav-item">
+                                <a class="nav-link" href="informacion.html">Información</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="perfil.html">Perfil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" onclick="eliminar_session()">Salir</a>
+                            </li>
+                            <!--  <li class="nav-item">
+        <a class="nav-link disabled">D</a>
+    </li> -->
+                        </ul>
+                        <!--  <span class="navbar-text d-none d-md-block">
+                            <button class="btn btn-default" type="button" onclick="boton_panico()">
+                                <i class="fa fa-bell text-warning" style="font-size:28px"></i>
+                            </button>
+                        </span> -->
+                    </div>
+                </nav>
+            </header>
+            <br />
+            <br />
+            <br />
+            <!-- blog -->
+            <div class="blog" style="padding-top: 0px;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <!-- Añade 'text-center' aquí -->
+                            <h2 class="black"><strong>Notificaciones</strong></h2>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-12" id="pnl_lista">
+                        	
+								
+						</div>
+                    </div>
+                    <div class="row" id="msj">
+                    </div>
+                </div>
+            </div>
+            <!-- end blog -->
+            <!-- footer -->
+            <footer class="bg-light text-dark mt-5">
+                <div class="container text-center text-md-left py-3">
+                    <!-- Grid row -->
+                    <div class="row">
+                        <!-- Grid column -->
+                        <div class="col-md-12 mt-md-0 mt-3">
+                            <!-- Content -->
+                            <h6 class="text-uppercase font-weight-bold">Urb. Rancho San Francisco</h6>
+                            <p>© 2024 Derechos Reservados</p>
+                        </div>
+                        <!-- Grid column -->
+                    </div>
+                    <!-- Grid row -->
+                </div>
+                <!-- Footer Text -->
+            </footer>
+            <!-- end footer -->
+
+        </div>
+    </div>
+    <div class="overlay"></div>
+    <!-- Javascript files-->
+    <script src="cordova.js"></script>
+    <script src="js/jquery.min.js"></script>
+        <script src="js/init.js"></script>
+
+    <script src="js/session.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/custom.js"></script> 
+     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    
+    <!-- <script src="js/jquery-3.0.0.min.js"></script> -->
+    <script src="js/hikphp.js"></script>  
+    <script src="js/html2canvas/dist/html2canvas.js"></script>
+    <script src="js/descargar_img2.js"></script>
+
+
+    <script>
+    $(document).ready(function() {
+    	all_notificaciones()
+
+        
+    });
+
+    function perfil_visitas(id)
+    {
+        location.href='perfil_visita.html?id='+id
+    }
+
+</script>
+   <script type="text/javascript">
+        $(document).ready(function() {
+
+
+            usu = localStorage.getItem('Usuario');
+            $('#lbl_residente').text(usu.toUpperCase());
+            $('#lbl_lote').text(localStorage.getItem("Lote"));
+
+
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#dismiss, .overlay').on('click', function() {
+                $('#sidebar').removeClass('active');
+                $('.overlay').removeClass('active');
+            });
+
+            $('#sidebarCollapse').on('click', function() {
+                $('#sidebar').addClass('active');
+                $('.overlay').addClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+
+      <style>
+        #owl-demo .item {
+            margin: 3px;
+        }
+
+            #owl-demo .item img {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+    </style>
+
+</body>
+
+</html>
+
+

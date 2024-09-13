@@ -194,6 +194,33 @@ function EnviarCorreoNewClave(Correo,clave)
     });
 }
 
+function NumeroNotificaciones()
+{	
+	var id = localStorage.getItem('Id');
+	parametros = {
+		'usuario':id,
+	}
+	 $.ajax({
+        url :ip_server_php+'hikControl.php?NumeroNotificaciones=true',
+        data:{parametros,parametros},
+        type : 'POST',
+        dataType:'json',
+        success : function(response) {
+        	// console.log(response);
+        	if(response[0].num!=0)
+        	{
+        		$('#num_notification').css('display','initial');
+        		$('#num_notification').text(response[0].num);
+        	}
+
+        },
+        error : function(xhr, status) {
+            alert('Disculpe, existió un problema');
+            //console.log(xhr);
+        },
+    });
+}
+
 
 async function EditarClaveHik(PersonId,clave) 
 {	

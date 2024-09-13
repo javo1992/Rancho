@@ -56,6 +56,16 @@ if(isset($_GET['Noticias']))
 {
 	echo json_encode($controlador->Noticias());
 }
+if(isset($_GET['NumeroNotificaciones']))
+{
+	$parametros = $_POST['parametros'];
+	echo json_encode($controlador->NumeroNotificaciones($parametros));
+}
+if(isset($_GET['all_notificaciones']))
+{
+	$parametros = $_POST['parametros'];
+	echo json_encode($controlador->all_notificaciones($parametros));
+}
 
 if(isset($_GET['detalleNoticias']))
 {
@@ -66,6 +76,11 @@ if(isset($_GET['boton_panico']))
 {
 	// $parametros = $_POST['parametros'];
 	echo json_encode($controlador->boton_panico());
+}
+if(isset($_GET['ver_notificacion']))
+{
+	$parametros = $_POST['parametros'];
+	echo json_encode($controlador->ver_notificacion($parametros));
 }
 
 class hikControl
@@ -163,7 +178,7 @@ class hikControl
 	function EnviarCorreoClave($parametros)
 	{
 		$archivos = false;
-		$parametros['Correo'] = $parametros['Correo'].";javier.farinango92@gmail.com";
+		$parametros['Correo'] = $parametros['Correo'];
 		// $parametros['Correo'] = "javier.farinango92@gmail.com";
 		$body = "su clave es :".$parametros['Clave'];
 		$asunto = "Clave Temporal App Urb. Rancho san francisco";
@@ -442,6 +457,63 @@ class hikControl
 	{
 
 		return 1;
+	}
+
+
+	function NumeroNotificaciones($parametros)
+	{
+		$id = $parametros['usuario'];
+		$sql = "SELECT count(*) as num FROM notificaciones WHERE estado=0 AND residente = '".$id."' ";
+		return $this->db->datos($sql);
+	}
+
+	function all_notificaciones($parametros)
+	{
+		$id = $parametros['usuario'];
+		$sql = "SELECT * FROM notificaciones WHERE residente= '".$id."' ORDER BY Id_notificaciones DESC LIMIT 7";
+		$datos =  $this->db->datos($sql);
+
+		$lista = '';
+
+		foreach ($datos as $key => $value) {
+			if($value['estado']==1)
+			{
+				$lista.='<div class="alert border-1 border-start border-5 border-secondary alert-dismissible fade show py-2">
+							<a href="perfil_visita.html?id='.$value['id_visita'].'"><div class="d-flex align-items-center">
+								<div class="font-35 text-secondary" style="padding-right: 10px;"><i class="bx bx-tag-alt" style="font-size:35px"></i>
+								</div>
+								<div class="ms-3">
+									<h6 class="mb-0">Notificacion revisada</h6>
+									<div>'.$value['texto'].'</div>
+								</div>
+							</div>
+							</a>
+						</div>';
+			}else
+			{
+				$lista.='<div class="alert alert-warning border-1 bg-warning alert-dismissible fade show py-2">
+							<a href="perfil_visita.html?id='.$value['id_visita'].'" onclick="ver_notificacion('.$value['id_notificaciones'].')" >
+								<div class="d-flex align-items-center">
+										<div class="font-35 text-dark" style="padding-right: 10px;"><i class="fa fa-info-circle" style="font-size:35px"></i>
+										</div>
+										<div class="ms-3">
+											<h6 class="mb-0 text-dark">Notificacion sin revisar</h6>
+											<div class="text-dark">'.$value['texto'].'</div>
+										</div>
+									</div>
+									</a>
+								</div>';				
+			}
+		}
+
+		return $lista;
+	}
+
+	function ver_notificacion($parametros)
+	{
+		 $sql = "UPDATE  notificaciones  SET estado = 1 where id_notificaciones = '".$parametros['id']."'";
+		 	// print_r($sql);die();
+     	return  $this->db->sql_string($sql);
 	}
 }
 ?>

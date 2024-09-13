@@ -23,7 +23,12 @@ function lista_visitantes()
                     console.log(datePart+'-'+fecha_now);
                     if(datePart==fecha_now)
                     {
+                        tr+=`<div class="btn-group">`
                         tr+=`<button type="button" class="btn btn-default btn-sm" style="align-items: center;display: inline-flex;" onclick="show_ticket(`+item.Id+`)"><i style="padding-right:6px;font-size: 33px;" class="fa fa-qrcode"></i>  compartir</button>`;
+                        tr+=`<button type="button" class="btn btn-default btn-sm" onclick="boton_panico();show_ticket(`+item.Id+`)"><i style="font-size: 23px;" class="fa fa-bell-o"></i></button>`;
+
+                        tr+=`</div>`
+                    
                     }
     				tr+=`</td>
     				<td onclick="perfil_visitas(`+item.Id+`)">
@@ -74,7 +79,7 @@ function datos_visitante(id)
            
             $('#img_qr').attr('src','data:image/jpeg;base64,'+response[0].Qr);
             $('#img_qr2').attr('src','data:image/jpeg;base64,'+response[0].Qr);
-            $('#lbl_nombre').text(response[0].NombreVisitante)            
+            $('#lbl_nombre').text(response[0].NombreVisitante.toUpperCase())            
             $('#lbl_fechas').text(response[0].FechaIni +' - '+response[0].FechaFin)
             $('#lbl_fechasf').text(response[0].FechaFin)
             $('#lbl_fechasi').text(response[0].FechaIni)
@@ -236,4 +241,51 @@ function fecha_actual()
     let formattedDate = `${year}-${month}-${day}`;
 
     return formattedDate;
+}
+
+
+function all_notificaciones()
+{
+
+    var id = localStorage.getItem('Id');
+    parametros = {
+        'usuario':id
+    }
+    $.ajax({
+        url :ip_server_php+'hikControl.php?all_notificaciones=true',
+        data:{parametros,parametros},
+        type : 'POST',
+        dataType :'json',
+        success : function(response) {
+            console.log(response);
+            $('#pnl_lista').html(response);
+           
+        },
+        error : function(xhr, status) {
+            alert('Disculpe, existió un problema');
+            //console.log(xhr);
+        },
+    });
+
+}
+function ver_notificacion(id)
+{
+    parametros = {
+        'id':id
+    }
+    $.ajax({
+        url :ip_server_php+'hikControl.php?ver_notificacion=true',
+        data:{parametros,parametros},
+        type : 'POST',
+        dataType :'json',
+        success : function(response) {
+            console.log(response);
+            // $('#pnl_lista').html(response);
+           
+        },
+        error : function(xhr, status) {
+            alert('Disculpe, existió un problema');
+            //console.log(xhr);
+        },
+    });
 }

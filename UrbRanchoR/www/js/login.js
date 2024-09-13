@@ -111,6 +111,7 @@ function validarUsuario()
 function selectUsuario(usuario,estado,correo,nombre)
 {
 	$('#txt_id').val(usuario);
+	$('#txt_usuario').val(nombre);
 	if(estado)
 	{
 		$('#myModal').modal('hide');

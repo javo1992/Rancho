@@ -50,41 +50,60 @@ if(isset($_GET['EntranteHik']))
 		    		case '144':
 		    		//garita principal
 
-		    			$camaras = array('7805');
+		    			$camaras = array('7805','8048');
 		    			$data = $eventos->buscar_visitante($IdPerson);		    			
 		    		 	$eventos->takePhoto($IdPerson,$camaras);
 			        	$playerIds =array($data[0]['id']);
 
 			        	$title = 'Ingreso de Visitante';
-						$message = 'Su visitante acaba de ingresar por garita principal';
+								$message = 'Su visitante '.$data[0]['NombreVisitante'].' acaba de ingresar por garita principal';
 			        	$eventos->sendPushNotification($title, $message, $playerIds);
+			        	$eventos->InsertarNotificacion($message,$data[0]['Residente'],$data[0]['idVis']);
 
 		    			break;
 
 		    		case '157':
 		    			//garita ingreso piscina
-			        	$data = $eventos->buscar_visitante($IdPerson);
-		    			$camaras = array('396','4609','7821');
-		    		 	$eventos->UpdatetakePhoto($IdPerson,$camaras,$data[0]['FotoEntrada']);
+			        $data = $eventos->buscar_visitante($IdPerson);
+		    			$camaras = array('396','7821','8047');
+
+		    			//4609 camara no existe por que se movio
+		    			if($data[0]['FotoEntrada']!='')
+		    			{
+		    				// print_r($data[0]['FotoEntrada']);die();
+		    		 		$eventos->UpdatetakePhoto($IdPerson,$camaras,$data[0]['FotoEntrada']);
+		    		 	}else
+		    		 	{
+			    		 	$eventos->takePhoto($IdPerson,$camaras);
+		    		 	}
 
 			        	$playerIds =array($data[0]['id']);
 
 			        	$title = 'Ingreso de Visitante';
-						$message = 'Su visitante acaba de ingresar por garita piscina';
+								$message = 'Su visitante '.$data[0]['NombreVisitante'].' acaba de ingresar por garita piscina';
 			        	$eventos->sendPushNotification($title, $message, $playerIds);
+			        	$eventos->InsertarNotificacion($message,$data[0]['Residente'],$data[0]['idVis']);
 
 		    			break;
 		    		case '149':
 
 		    		// garita piscina salida 
-		    			// $camaras = array('401');
-		    		 	// $eventos->takePhoto($IdPerson,$camaras);
+			        $data = $eventos->buscar_visitante($IdPerson);
+		    			$camaras = array('401','7822','8049'); //7822
+		    			if($data[0]['FotoEntrada']!='')
+		    			{
+		    		 		$eventos->UpdatetakePhoto($IdPerson,$camaras,$data[0]['FotoEntrada']);
+		    		 	}else
+		    		 	{
+			    		 	$eventos->takePhoto($IdPerson,$camaras);
+		    		 	}
 		    			$data = $eventos->buscar_visitante($IdPerson);
 			        	$playerIds =array($data[0]['id']);
 
 			        	$title = 'Salida de Visitante';
-						$message = 'Su visitante acaba de salir por garita piscina';
+						$message = 'Su visitante '.$data[0]['NombreVisitante'].' acaba de salir por garita piscina';
 			        	$eventos->sendPushNotification($title, $message, $playerIds);
+			        	$eventos->InsertarNotificacion($message,$data[0]['Residente'],$data[0]['idVis']);
 
 		    			break;
 		    		
@@ -110,7 +129,7 @@ if(isset($_GET['EnviarNoti']))
 {
 	$title = 'Ingreso de Visitante';
 	$message = 'Su visitante acaba de ingresar';
-	$playerIds = array('34d6f9db-9454-4b53-bd2e-cb8e082e32c9');
+	$playerIds = array('b55db543-898a-409d-8b74-3fb133d6010f','832512e7-0945-4891-bc4b-e7113c0e6425');
 	echo json_encode($eventos->sendPushNotification($title, $message, $playerIds));
 }
 
@@ -157,10 +176,21 @@ class events
 		
 	}
 
+	function InsertarNotificacion($text,$residente,$idVisita)
+	{
+		 $sql = "INSERT INTO notificaciones (texto,residente,id_visita) VALUES ('".$text."','".$residente."','".$idVisita."')";
+
+		 	// print_r($sql);die();
+     return  $this->db->sql_string($sql);
+		
+	}
+
 	function UpdatetakePhoto($IdPerson,$camaras,$fotos)
 	{
 		$listaPhotos = json_decode($fotos, true);
 		$num = count($listaPhotos);
+
+		// print_r($num);die();
 		// $listaPhotos = array();
 		// print_r($listaPhotos);
 		foreach ($camaras as $key => $value) {
@@ -206,7 +236,7 @@ class events
 
 	function buscar_visitante($IdPerson)
 	{
-		$sql = "SELECT userIdNotification as id,FotoEntrada FROM visitas  WHERE IdHik = '".$IdPerson."'";
+		$sql = "SELECT userIdNotification as id,FotoEntrada,NombreVisitante,Id as idVis,Residente FROM visitas  WHERE IdHik = '".$IdPerson."'";
 		return  $this->db->datos($sql);
 	}
 

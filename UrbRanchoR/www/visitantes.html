@@ -279,8 +279,13 @@
         <h4 class="modal-title">QR de visitante</h4>
       </div>
        <div class="modal-footer" style="padding-bottom: :0px">
-        <button type="button" class="btn btn-primary" id="btnCompartir" />Compartir</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <div class="btn-group">
+                <button class=" btn btn-default" type="button" id="btnCompartir2" onclick="">
+                <i class="fa fa-bell-o pt-0" style="font-size: 25px;" id="btn_bell" ></i>
+                </button>
+                <button type="button" class="btn btn-primary" id="btnCompartir" />Compartir</button>        
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
       </div>
       <div class="modal-body" style="padding-top:0px">
         <div class="row" id="ticket">
@@ -291,7 +296,7 @@
                 <img src="" id="img_qr2" crossorigin="anonymous" style="width:300px">
             </div>
             <div class="col-md-12 text-center">
-                <b><span id="lbl_residente"></span></b> lo invitó a su residencia en <b><span id="lbl_lote"></span></b> de la <b>URBANIZACIÓN RANCHO SAN FRANCISCO</b>
+                <b><span id="lbl_residente"></span></b> invitó a <b><span id="lbl_nombre"></span></b> a su residencia en <b><span id="lbl_lote"></span></b> de la <b>URBANIZACIÓN RANCHO SAN FRANCISCO</b>
             </div>
              <div class="col-md-12 text-center">
                 <table class="table">
